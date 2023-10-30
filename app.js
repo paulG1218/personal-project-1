@@ -1,9 +1,11 @@
 import express from 'express'
 import session from 'express-session';
 import ViteExpress from 'vite-express'
+import {Climb, User, Shop} from './src/model.js'
+import morgan from 'morgan';
 
 const app = express();
-const port = '8000';
+const port = '6969';
 ViteExpress.config({ printViteDevServerHost: true });
 
 app.use(morgan('dev'));
@@ -19,6 +21,9 @@ function loginRequired(req, res, next) {
     }
 }
 
-app.get('/api/climbs', () => {
-    
+app.get('/api/climbs', async (req, res) => {
+    const allClimbs = await Climb.findAll()
+    res.json(allClimbs)
 })
+
+ViteExpress.listen(app, port, () => console.log(`Server is listening on http://localhost:${port}`));
