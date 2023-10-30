@@ -1,6 +1,30 @@
 [
     {
-        "TODO": "TODO"
+      "difficulty": "5.10a",
+      "description": "A challenging route with delicate moves and small holds.",
+      "isBoulder": false,
+      "date": "2023-03-15",
+      "title": "Crimson Crux"
+    },
+    {
+      "difficulty": "V3",
+      "description": "A bouldering problem with powerful overhangs and dynamic moves.",
+      "isBoulder": true,
+      "date": "2023-04-02",
+      "title": "Boulder Bash"
+    },
+    {
+      "difficulty": "5.9",
+      "description": "A beginner-friendly route with good handholds and footholds.",
+      "isBoulder": false,
+      "date": "2023-05-20",
+      "title": "Rocky Ramp"
+    },
+    {
+      "difficulty": "V5",
+      "description": "A challenging boulder problem with a technical crux.",
+      "isBoulder": true,
+      "date": "2023-06-10",
+      "title": "SlabMaster"
     }
-]
-
+  ]

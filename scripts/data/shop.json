@@ -1,0 +1,33 @@
+[
+    {
+      "title": "Climbing Shoes",
+      "description": "High-performance climbing shoes for all types of climbs.",
+      "price": 89.99,
+      "purchaseLink": ""
+    },
+    {
+      "title": "Climbing Harness",
+      "description": "A comfortable and adjustable harness for safety and comfort during climbs.",
+      "price": 59.99,
+      "purchaseLink": ""
+    },
+    {
+      "title": "Climbing Rope",
+      "description": "Dynamic climbing rope with excellent strength and durability.",
+      "price": 149.99,
+      "purchaseLink": ""
+    },
+    {
+      "title": "Carabiner Set",
+      "description": "A set of lightweight carabiners for clipping onto protection points.",
+      "price": 34.99,
+      "purchaseLink": ""
+    },
+    {
+      "title": "Climbing Chalk Bag",
+      "description": "Chalk bag to keep your hands dry for a better grip while climbing.",
+      "price": 19.99,
+      "purchaseLink": ""
+    }
+  ]
+  
