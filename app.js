@@ -18,3 +18,7 @@ function loginRequired(req, res, next) {
         next();
     }
 }
+
+app.get('/api/climbs', () => {
+    
+})
