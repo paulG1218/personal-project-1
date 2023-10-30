@@ -12,7 +12,7 @@ import axios from 'axios';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
-        <Route path='/' element={<Root />} errrorElement={<ErrorPage/>} >
+        <Route path='/' element={<Root />} errorElement={<ErrorPage/>} >
 
         // Homepage
         <Route index element={<Homepage />} />

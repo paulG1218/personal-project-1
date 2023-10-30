@@ -2,7 +2,7 @@ import { DataTypes, Model } from 'sequelize';
 import util from 'util';
 import connectToDB from './db.js';
 
-export const db = await connectToDB('postgresql:///testing-react');
+export const db = await connectToDB('postgresql:///project_db');
 
 export class Climb extends Model {
   [util.inspect.custom]() {
@@ -14,7 +14,8 @@ Climb.init(
     {
         climbId: {
             type: DataTypes.INTEGER,
-            PrimaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
         difficulty: {
             type: DataTypes.STRING,
@@ -38,7 +39,6 @@ Climb.init(
         },
         isPublic: {
             type: DataTypes.BOOLEAN,
-            allowNull: false,
             default: true
         },
         title: {
@@ -62,7 +62,7 @@ export class Shop extends Model {
 Shop.init(
     {
         itemId: {
-            PrimaryKey: true,
+            primaryKey: true,
             type: DataTypes.INTEGER,
             autoIncrement: true,
         },
@@ -75,7 +75,7 @@ Shop.init(
             allowNull: false
         },
         price: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.FLOAT,
             allowNull: false
         },
         purchaseLink: {

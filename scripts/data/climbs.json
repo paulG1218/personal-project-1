@@ -4,7 +4,8 @@
       "description": "A challenging route with delicate moves and small holds.",
       "isBoulder": false,
       "date": "2023-03-15",
-      "title": "Crimson Crux"
+      "title": "Crimson Crux",
+      "isPublic": "true"
     },
     {
       "difficulty": "V3",
