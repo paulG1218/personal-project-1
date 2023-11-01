@@ -5,27 +5,31 @@
       "isBoulder": false,
       "date": "2023-03-15",
       "title": "Crimson Crux",
-      "isPublic": "true"
+      "isPublic": "true",
+      "img": ""
     },
     {
       "difficulty": "V3",
       "description": "A bouldering problem with powerful overhangs and dynamic moves.",
       "isBoulder": true,
       "date": "2023-04-02",
-      "title": "Boulder Bash"
+      "title": "Boulder Bash",
+      "img": ""
     },
     {
       "difficulty": "5.9",
       "description": "A beginner-friendly route with good handholds and footholds.",
       "isBoulder": false,
       "date": "2023-05-20",
-      "title": "Rocky Ramp"
+      "title": "Rocky Ramp",
+      "img": ""
     },
     {
       "difficulty": "V5",
       "description": "A challenging boulder problem with a technical crux.",
       "isBoulder": true,
       "date": "2023-06-10",
-      "title": "SlabMaster"
+      "title": "SlabMaster",
+      "img": ""
     }
   ]

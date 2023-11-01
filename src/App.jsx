@@ -1,13 +1,13 @@
-import { useState } from 'react'
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 import './App.css'
 import Root from './pages/Root.jsx'
 import ErrorPage from './pages/ErrorPage.jsx';
 import Homepage from './pages/Homepage.jsx'
 import Shop from './pages/Shop.jsx'
-import Climbs from './pages/Climbs.jsx'
+import AllClimbs from './pages/AllClimbs.jsx'
 import ClimbPage from './pages/ClimbPage.jsx'
 import ItemPage from './pages/ItemPage.jsx'
+import Login from './pages/Login';
 import axios from 'axios';
 
 const router = createBrowserRouter(
@@ -20,7 +20,7 @@ const router = createBrowserRouter(
         // Climbs
         <Route 
             path='/climbs' 
-            element={<Climbs />} 
+            element={<AllClimbs />} 
             loader={async () => {
                 const res = await axios.get('/api/climbs')
                 return {climbs: res.data}
@@ -28,15 +28,41 @@ const router = createBrowserRouter(
         />
 
         // Shop
-        <Route path='/shop' element={<Shop />} />
+        <Route 
+            path='/shop' 
+            element={<Shop />} 
+            loader={async () => {
+                const res = await axios.get('/api/shop')
+                return {shop: res.data}
+            }}
+        />
 
         //Single climb
-        <Route path='/climbs/:climbId' element={<ClimbPage />} />
+        <Route 
+            path='/climbs/:climbId' 
+            element={<ClimbPage />} 
+            loader={async ({params}) => {
+                const res = await axios.get(`/api/climbs/${params.climbId}`)
+                return {climb: res.data}
+            }}
+        />
 
         //Single shop item
-        <Route path='/shop/:itemId' element={<ItemPage />} />
+        <Route 
+            path='/shop/:itemId' 
+            element={<ItemPage />} 
+            loader={async ({params}) => {
+                const res = await axios.get(`/api/shop/${params.itemId}`)
+                return {item: res.data}
+            }}
+        />
 
-        //
+        //Login
+
+        <Route
+            path='/login'
+            element={<Login/>}
+        />
 
         </Route>
     )

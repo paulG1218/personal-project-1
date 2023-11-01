@@ -32,6 +32,9 @@ const Root = () => {
         <li>
             <NavLink to='/climbs'>Climbs</NavLink>
         </li>
+        <li>
+            <NavLink to='/login'>Log in</NavLink>
+        </li>
       </ul>
     </nav>
 

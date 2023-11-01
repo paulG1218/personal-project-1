@@ -1,11 +1,11 @@
 import React from 'react'
 
-const ErrorPage = () => {
+const AnonNavBar = () => {
   return (
     <div>
-      Error
+      
     </div>
   )
 }
 
-export default ErrorPage
+export default AnonNavBar
