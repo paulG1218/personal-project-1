@@ -1,8 +1,9 @@
 import express from 'express'
 import session from 'express-session';
 import ViteExpress from 'vite-express'
-import {Climb, User, Shop} from './src/model.js'
+import {Climb, User, Shop} from './model.js'
 import morgan from 'morgan';
+import authFunctions from './server/handlers/authHandlers.js';
 
 const app = express();
 const port = '8000';
@@ -12,14 +13,6 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(session({ secret: 'ssshhhhh', saveUninitialized: true, resave: false }));
-
-function loginRequired(req, res, next) {
-    if (!req.session.userId) {
-        res.status(401).json({ error: 'Unauthorized' });
-    } else {
-        next();
-    }
-}
 
 app.get('/api/climbs', async (req, res) => {
     const allClimbs = await Climb.findAll()
@@ -43,17 +36,7 @@ app.get('/api/shop/:itemId', async (req, res) => {
     res.json(item)
 })
 
-app.post('/api/auth', async (req, res) => {
-    const { username, password } = req.body;
-    const user = await User.findOne({ where: { username: username } });
-  
-    if (user && user.password === password) {
-      req.session.userId = user.userId
-      res.json({ success: true })
-    } else {
-      res.json({ success: false })
-    }
-  })
+app.post('/api/auth', authFunctions.login)
 
 
 

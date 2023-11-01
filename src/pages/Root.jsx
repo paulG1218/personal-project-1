@@ -1,49 +1,42 @@
 import React from 'react'
-import { NavLink, Outlet } from 'react-router-dom'
-
-function climbDropdown() {
-    document.getElementById("climbDropdown").classList.toggle("show");
-  }
-  
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
+import { Outlet } from 'react-router-dom'
+import { Container, Navbar, Nav, NavLink } from 'react-bootstrap'
 
 const Root = () => {
-    return <>
-    <nav>
-      <ul>
-        <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
-        <li>
-        <NavLink to='/shop'>Shop</NavLink>
-        </li>
-        <li>
-            <NavLink to='/climbs'>Climbs</NavLink>
-        </li>
-        <li>
-            <NavLink to='/login'>Log in</NavLink>
-        </li>
-      </ul>
-    </nav>
+    return (
+      <>
+      <Navbar>
+        <Container fluid>
+          <Navbar.Brand href='/'>BRAND</Navbar.Brand>
+          <Navbar.Toggle/>
+          <Navbar.Collapse>
+            <Nav>
+              <NavLink href='/climbs'>
+                Climbs
+              </NavLink>
+            </Nav>
+            <Nav>
+              <NavLink href='/shop'>
+                Shop
+              </NavLink>
+            </Nav>
+            <Nav>
+              <NavLink href='/login'>
+                Log in
+              </NavLink>
+            </Nav>
+            <Nav>
+              <NavLink>
 
-    <hr />
-
-    <main>
-      <Outlet />
-    </main>
-  </>
+              </NavLink>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <hr />
+      <Outlet/>
+      </>
+    )
 }
 
 export default Root

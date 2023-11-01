@@ -7,7 +7,7 @@ import Shop from './pages/Shop.jsx'
 import AllClimbs from './pages/AllClimbs.jsx'
 import ClimbPage from './pages/ClimbPage.jsx'
 import ItemPage from './pages/ItemPage.jsx'
-import Login from './pages/Login';
+import Login from './pages/Login.jsx';
 import axios from 'axios';
 
 const router = createBrowserRouter(

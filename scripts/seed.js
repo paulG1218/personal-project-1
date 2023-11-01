@@ -1,4 +1,4 @@
-import {Climb, User, Shop, db} from '../src/model.js'
+import {Climb, User, Shop, db} from '../model.js'
 import climbData from './data/climbs.json' assert {type: 'json'}
 import shopData from './data/shop.json' assert {type: 'json'}
 import userData from './data/users.json' assert {type: 'json'}
