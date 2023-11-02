@@ -44,6 +44,7 @@ const authFunctions = {
     logout: async (req, res) => {
         req.session.destroy()
         res.json('Session terminated')
+        res.render('/')
     },
 
     sessionCheck: async (req, res) => {

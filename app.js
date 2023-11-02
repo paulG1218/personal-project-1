@@ -38,6 +38,10 @@ app.get('/api/shop/:itemId', async (req, res) => {
 
 app.post('/api/auth', authFunctions.login)
 
+app.get('/sessionCheck', authFunctions.sessionCheck)
+
+app.get('/logout', authFunctions.logout)
+
 
 
 ViteExpress.listen(app, port, () => console.log(`Server is listening on http://localhost:${port}`));
