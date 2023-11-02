@@ -10,9 +10,18 @@ const Login = () => {
       event.preventDefault()
   
       const res = await axios.post('/api/auth', formData);
-  
-      if (res.data.success) {
-        navigate('/climbs')
+
+      const errTxt = document.getElementById('error')
+
+      switch (res.data.message) {
+        case ('Login successful'): 
+          navigate('/climbs')
+          break
+        case ('Password incorrect'): 
+          errTxt.innerText = 'Password incorrect'
+          break
+        default:
+          errTxt.innerText = 'No user found'
       }
     }
   
@@ -20,6 +29,7 @@ const Login = () => {
       <>
         <h1>Log In</h1>
         <LoginForm onLogin={handleLogin} />
+        <p style={{color: 'red'}} id='error'></p>
       </>
     )
 }

@@ -16,23 +16,28 @@ const authFunctions = {
             ]
         })
 
-        if(!user){
-            res.json('No username found')
+        if (!user) {
+            res.json({
+                message: 'No username found',
+                userId: ''
+        })
             return
-        }
-
-        if(user && user.password === password){
+        } else if (user && user.password === password) {
             req.session.user = user
 
-            res.json({  
+            res.json({
                 message: 'Login successful', 
                 userId: user.userId 
             })
             return
+
         }
         
-        res.json('Password incorrect')
-        
+        res.json({
+            message: 'Password incorrect',
+            userId: ''
+        })
+        return
         
     },
 

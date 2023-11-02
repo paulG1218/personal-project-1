@@ -3,7 +3,7 @@ import session from 'express-session';
 import ViteExpress from 'vite-express'
 import {Climb, User, Shop} from './model.js'
 import morgan from 'morgan';
-import authFunctions from './server/handlers/authHandlers.js';
+import authFunctions from './handlers/authHandlers.js';
 
 const app = express();
 const port = '8000';
