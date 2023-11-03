@@ -3,26 +3,36 @@ import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { Container, Navbar, Nav, NavLink } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 
 const NavBar = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const user = useSelector(state => state.login.userId)
 
-    const sessionCheck = async () => {
-        await axios.get('/sessionCheck')
-            .then(res => {
-                if (res.data.user) {
-                    dispatch({
-                        type: 'authenticated',
-                        payload: res.data.user.userId
-                    })
-                } else {
-                    console.log(res.data)
-                }
-            })
-          }
+  const logout = async () => {
+    await axios.get('/logout')
+    .then(res => {
+      dispatch({type: 'logout'})
+      navigate('/')
+    })
+  }
+
+  const sessionCheck = async () => {
+      await axios.get('/sessionCheck')
+          .then(res => {
+              if (res.data.user) {
+                  dispatch({
+                      type: 'authenticated',
+                      payload: res.data.user.userId
+                  })
+              } else {
+                  console.log(res.data)
+              }
+          })
+        }
           
-          useEffect(() => sessionCheck, [])
+  useEffect(() => sessionCheck, [user])
 
   return (
     <div>
@@ -43,7 +53,7 @@ const NavBar = () => {
             </Nav>
             <Nav>
               {user &&
-              <NavLink href='/logout'>
+              <NavLink to='/' onClick={logout}>
                 Log out
               </NavLink>
               }
