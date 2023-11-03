@@ -42,6 +42,8 @@ app.get('/sessionCheck', authFunctions.sessionCheck)
 
 app.get('/logout', authFunctions.logout)
 
+app.post('/api/register', authFunctions.register)
+
 
 
 ViteExpress.listen(app, port, () => console.log(`Server is listening on http://localhost:${port}`));

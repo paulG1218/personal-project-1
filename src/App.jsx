@@ -9,6 +9,7 @@ import ClimbPage from './pages/ClimbPage.jsx'
 import ItemPage from './pages/ItemPage.jsx'
 import Login from './pages/Login.jsx';
 import axios from 'axios';
+import Register from './pages/Register';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -62,6 +63,13 @@ const router = createBrowserRouter(
         <Route
             path='/login'
             element={<Login/>}
+        />
+
+        //Register
+        
+        <Route
+            path='/register'
+            element={<Register/>}
         />
 
         </Route>

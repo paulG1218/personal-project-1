@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import LoginForm from '../components/LoginForm'
 import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
     const navigate = useNavigate()
@@ -36,6 +37,7 @@ const Login = () => {
         <h1>Log In</h1>
         <LoginForm onLogin={handleLogin} />
         <p style={{color: 'red'}} id='error'></p>
+        <Link to='/register'>Need to sign up?</Link>
       </>
     )
 }

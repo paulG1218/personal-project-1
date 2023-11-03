@@ -53,6 +53,37 @@ const authFunctions = {
             res.json("no user logged in")
         }
     },
+    register: async (req, res) => {
+
+        const {username, password} = req.body
+
+        const user = await User.findOne({
+            where: {
+                username: username
+            }
+        })
+
+        if (user) {
+            res.json({
+                message: 'Username in use',
+                userId: ''
+        })
+            return
+        } else if (!user) {
+            const newUser = User.create({
+                username: username,
+                password: password,
+            })
+
+            req.session.user = newUser
+
+            res.json({
+                message: 'Registered'
+            })
+            return
+
+        }
+    }
 }
 
 export default authFunctions
