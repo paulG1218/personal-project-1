@@ -78,7 +78,8 @@ const authFunctions = {
             req.session.user = newUser
 
             res.json({
-                message: 'Registered'
+                message: 'Registered',
+                userId: newUser.userId
             })
             return
 

@@ -13,7 +13,7 @@ const Login = () => {
     const handleLogin = async (event, formData) => {
       event.preventDefault()
   
-      const res = await axios.post('/api/auth', formData);
+      const res = await axios.post('/api/auth', formData)
 
       const errTxt = document.getElementById('error')
 

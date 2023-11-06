@@ -10,13 +10,22 @@ import ItemPage from './pages/ItemPage.jsx'
 import Login from './pages/Login.jsx';
 import axios from 'axios';
 import Register from './pages/Register';
+import CreateClimb from './pages/CreateClimb';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path='/' element={<Root />} errorElement={<ErrorPage/>} >
 
         // Homepage
-        <Route index element={<Homepage />} />
+        <Route 
+            index 
+            element={<Homepage />} 
+            loader={async () => {
+                const climbs = await axios.get('/api/climbs')
+                const shop = await axios.get('/api/shop')
+                return {climbs: climbs.data, shop: shop.data}
+            }}
+        />
 
         // Climbs
         <Route 
@@ -70,6 +79,13 @@ const router = createBrowserRouter(
         <Route
             path='/register'
             element={<Register/>}
+        />
+
+        //Create a climb
+
+        <Route 
+            path='/createClimb'
+            element={<CreateClimb/>}
         />
 
         </Route>

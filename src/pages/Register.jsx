@@ -20,10 +20,10 @@ const Register = () => {
 
       switch (res.data.message) {
         case ('Registered'): 
-          navigate('/climbs')
-          dispatch({
+        dispatch({
             type: 'authenticated'
-          })
+        })
+        navigate('/climbs')
           break
         case ('Username in use'): 
           errTxt.innerText = 'Username is taken!'

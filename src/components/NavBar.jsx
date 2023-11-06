@@ -26,8 +26,9 @@ const NavBar = () => {
                       type: 'authenticated',
                       payload: res.data.user.userId
                   })
+                  console.log(res.data.userId)
               } else {
-                  console.log(res.data)
+                  console.log(res.data.user)
               }
           })
         }
