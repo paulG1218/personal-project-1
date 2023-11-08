@@ -6,7 +6,8 @@
       "date": "2023-03-15",
       "title": "Crimson Crux",
       "isPublic": true,
-      "img": ""
+      "img": "",
+      "userId": 1
     },
     {
       "difficulty": "V3",
@@ -15,7 +16,8 @@
       "date": "2023-04-02",
       "title": "Boulder Bash",
       "isPublic": true,
-      "img": ""
+      "img": "",
+      "userId": 1
     },
     {
       "difficulty": "5.9",
@@ -24,7 +26,8 @@
       "date": "2023-05-20",
       "title": "Rocky Ramp",
       "isPublic": true,
-      "img": ""
+      "img": "",
+      "userId": 1
     },
     {
       "difficulty": "V5",
@@ -33,6 +36,7 @@
       "date": "2023-06-10",
       "title": "SlabMaster",
       "isPublic": true,
-      "img": ""
+      "img": "",
+      "userId": 1
     }
   ]

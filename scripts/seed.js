@@ -8,53 +8,56 @@ await db.sync({ force: true });
 
 console.log('Seeding database...');
 
-console.log('Creating climbs...');
-const climbsInDB = await Promise.all(
-  climbData.map((climb) => {
-    const date = new Date(Date.parse(climb.date));
-    const { title, description, difficulty, isBoulder, isPublic } = climb;
-
-    const newClimb = Climb.create({
-      title: title,
-      description: description,
-      difficulty: difficulty,
-      isBoulder: isBoulder,
-      isPublic: isPublic,
-      date: date
-    });
-
-    return newClimb;
-  }),
-);
 
 console.log('Creating shop items...')
 const shopInDB = await Promise.all(
-    shopData.map((item) => {
-        const {title, description, price, purchaseLink} = item
-
-        const newShop = Shop.create({
-            title: title,
-            description: description,
-            price: price,
-            purchaseLink: purchaseLink
-        })
-        return newShop
+  shopData.map((item) => {
+    const {title, description, price, purchaseLink} = item
+    
+    const newShop = Shop.create({
+      title: title,
+      description: description,
+      price: price,
+      purchaseLink: purchaseLink
     })
-)
-
-console.log('Creating users...')
-const usersInDB = await Promise.all(
+    return newShop
+  })
+  )
+  
+  console.log('Creating users...')
+  const usersInDB = await Promise.all(
     userData.map((user) => {
-        const {username, password, isAdmin} = user
-        const newUser = User.create({
-            username: username,
-            password: password,
-            isAdmin: isAdmin
-        })
-        return newUser
+      const {username, password, isAdmin} = user
+      const newUser = User.create({
+        username: username,
+        password: password,
+        isAdmin: isAdmin
+      })
+      return newUser
     })
-
-)
-
-await db.close();
-console.log('Finished seeding database!');
+    
+    )
+    
+    console.log('Creating climbs...');
+    const climbsInDB = await Promise.all(
+      climbData.map((climb) => {
+        const date = new Date(Date.parse(climb.date));
+        const { title, description, difficulty, isBoulder, isPublic, userId } = climb;
+    
+        const newClimb = Climb.create({
+          title: title,
+          description: description,
+          difficulty: difficulty,
+          isBoulder: isBoulder,
+          isPublic: isPublic,
+          date: date,
+          userId: userId
+        });
+    
+        return newClimb;
+      }),
+    );
+    
+    await db.close();
+    console.log('Finished seeding database!');
+    

@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-import { ButtonGroup, ToggleButton, Form, Container, Button } from 'react-bootstrap';
+import { ButtonGroup, ToggleButton, Form, Container, Button } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
 
 const CreateClimbForm = ({handleCreateClimb}) => {
+
+  const userId = useSelector(state => state.login.userId)
 
     const [title, setTitle] = useState()
 
@@ -176,7 +179,8 @@ const CreateClimbForm = ({handleCreateClimb}) => {
           isBoulder: isBoulder,
           description: description,
           img: image,
-          isPublic: isPublic
+          isPublic: isPublic,
+          userId: userId
         })
       }}>Create!</Button>
     </Container>

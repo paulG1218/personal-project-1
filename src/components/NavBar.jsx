@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 const NavBar = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const user = useSelector(state => state.login.userId)
+  const userId = useSelector(state => state.login.userId)
 
   const logout = async () => {
     await axios.get('/logout')
@@ -33,7 +33,7 @@ const NavBar = () => {
           })
         }
           
-  useEffect(() => sessionCheck, [user])
+  useEffect(() => sessionCheck, [userId])
 
   return (
     <div>
@@ -53,12 +53,12 @@ const NavBar = () => {
               </NavLink>
             </Nav>
             <Nav>
-              {user &&
+              {userId &&
               <NavLink to='/' onClick={logout}>
                 Log out
               </NavLink>
               }
-              {!user &&
+              {!userId &&
               <NavLink href='/login'>
                 Log in
               </NavLink>

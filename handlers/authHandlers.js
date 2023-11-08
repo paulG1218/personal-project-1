@@ -89,7 +89,7 @@ const authFunctions = {
 
     createClimb: async (req, res) => {
 
-        const {title, difficulty, isBoulder, description, img, isPublic} = req.body
+        const {title, difficulty, isBoulder, description, img, isPublic, userId} = req.body
 
         const climb = await Climb.findOne({
             where: {
@@ -109,6 +109,7 @@ const authFunctions = {
             description: description,
             img: img,
             isPublic: isPublic,
+            userId: userId,
             date: new Date()
         })
 
