@@ -48,7 +48,8 @@ const authFunctions = {
 
     sessionCheck: async (req, res) => {
         if (req.session.user) {
-            res.json({ user: req.session.user })
+            console.log(req.session.user.userId)
+            res.json({ userId: req.session.user.userId })
         } else {
             res.json("no user logged in")
         }
@@ -70,7 +71,7 @@ const authFunctions = {
         })
             return
         } else if (!user) {
-            const newUser = User.create({
+            const newUser = await User.create({
                 username: username,
                 password: password,
             })
@@ -84,6 +85,46 @@ const authFunctions = {
             return
 
         }
+    },
+
+    createClimb: async (req, res) => {
+
+        const {title, difficulty, isBoulder, description, img, isPublic} = req.body
+
+        const climb = await Climb.findOne({
+            where: {
+                title: title
+            }
+        })
+
+        if (climb) {
+            res.json({message: 'Title taken'})
+            return
+        }
+
+        await Climb.create({
+            title: title,
+            difficulty: difficulty,
+            isBoulder: isBoulder,
+            description: description,
+            img: img,
+            isPublic: isPublic,
+            date: new Date()
+        })
+
+        const newClimb = await Climb.findOne({
+            where: {
+                title: title
+            }
+        })
+
+        res.json({
+            message: 'Climb created',
+            climb: newClimb
+        })
+        console.log(newClimb)
+
+        return
     }
 }
 

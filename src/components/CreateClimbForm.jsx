@@ -1,17 +1,32 @@
 import React, { useState } from 'react'
-import { ButtonGroup, ToggleButton, Form, Container } from 'react-bootstrap';
+import { ButtonGroup, ToggleButton, Form, Container, Button } from 'react-bootstrap';
 
-const CreateClimbForm = () => {
+const CreateClimbForm = ({handleCreateClimb}) => {
 
     const [title, setTitle] = useState()
 
     const[difficulty, setDifficulty] = useState()
 
-    const [radioValue, setRadioValue] = useState('1');
+    const [boulderRadioValue, setBoulderRadioValue] = useState('1')
 
-    const radios = [
+    const [publicRadioValue, setPublicRadioValue] = useState('1')
+
+    const [isBoulder, setIsBoulder] = useState(true)
+
+    const [isPublic, setIsPublic] = useState(true)
+
+    const [description, setDescription] = useState()
+    
+    const [image, setImage] = useState()
+
+    const boulderRadios = [
         { name: 'Boulder', value: '1' },
         { name: 'Route', value: '2' }
+      ];
+
+    const publicRadios = [
+        { name: 'Public', value: '1' },
+        { name: 'Private', value: '2' }
       ];
 
     return (
@@ -27,16 +42,18 @@ const CreateClimbForm = () => {
       <Form.Label htmlFor='isBoulder'>Boulder or Route?</Form.Label>
 
       <ButtonGroup className="climbRadio">
-        {radios.map((radio, idx) => (
+        {boulderRadios.map((radio, idx) => (
           <ToggleButton
             key={idx}
-            id={`radio-${idx}`}
+            id={`boulderRadio-${idx}`}
             type="radio"
             variant={idx % 2 ? 'outline-danger' : 'outline-success'}
-            name="radio"
+            name="isBoulder"
             value={radio.value}
-            checked={radioValue === radio.value}
-            onChange={(e) => setRadioValue(e.currentTarget.value)}
+            checked={boulderRadioValue === radio.value}
+            onChange={(e) => {
+              setBoulderRadioValue(e.currentTarget.value)
+              setIsBoulder(idx % 2 ? false : true)}}
           >
             {radio.name}
           </ToggleButton>
@@ -45,7 +62,7 @@ const CreateClimbForm = () => {
 
       <Form.Label htmlFor="difficulty">Difficulty:</Form.Label>
 
-      {radioValue === '2' &&
+      {boulderRadioValue === '2' &&
         <Form.Select
             name="difficulty"
             id="routeDifficulty"
@@ -85,7 +102,7 @@ const CreateClimbForm = () => {
         </Form.Select>
       }
 
-      {radioValue === '1' &&
+      {boulderRadioValue === '1' &&
         <Form.Select
             name="difficulty"
             id="boulderDifficulty"
@@ -113,14 +130,55 @@ const CreateClimbForm = () => {
       }
       
 
-      <Form.Label htmlFor="">:</Form.Label>
+      <Form.Label htmlFor="description">Description:</Form.Label>
       <Form.Control
-        name=""
-        id=""
+        name="description"
+        id="description"
         type="text"
         required
-        onChange={(e) => set(e.target.value)}
+        onChange={(e) => setDescription(e.target.value)}
       />
+
+      <Form.Label htmlFor="image">Image:</Form.Label>
+      <Form.Control
+        name="image"
+        id="image"
+        type="file"
+        required
+        onChange={(e) => setImage(e.target.value)}
+      />
+
+<Form.Label htmlFor='isPublic'>Public or Private?</Form.Label>
+
+<ButtonGroup className="publicRadio">
+  {publicRadios.map((radio, idx) => (
+    <ToggleButton
+      key={idx}
+      id={`publicRadio-${idx}`}
+      type="radio"
+      variant={idx % 2 ? 'outline-danger' : 'outline-success'}
+      name="isPublic"
+      value={radio.value}
+      checked={publicRadioValue === radio.value}
+      onChange={(e) => {
+        setPublicRadioValue(e.currentTarget.value)
+        setIsPublic(idx % 2 ? false : true)}}
+    >
+      {radio.name}
+    </ToggleButton>
+  ))}
+</ButtonGroup>
+
+      <Button onClick={(e) => {
+        handleCreateClimb(e, {
+          title: title,
+          difficulty: difficulty,
+          isBoulder: isBoulder,
+          description: description,
+          img: image,
+          isPublic: isPublic
+        })
+      }}>Create!</Button>
     </Container>
   )
 }

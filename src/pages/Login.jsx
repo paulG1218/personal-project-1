@@ -21,7 +21,8 @@ const Login = () => {
         case ('Login successful'): 
           navigate('/climbs')
           dispatch({
-            type: 'authenticated'
+            type: 'authenticated',
+            payload: res.data.userId
           })
           break
         case ('Password incorrect'): 

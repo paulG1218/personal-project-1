@@ -1,18 +1,19 @@
 import React from 'react'
 import { useLoaderData } from 'react-router-dom'
 import ShopCard from '../components/ShopCard'
+import { Col, Row } from 'react-bootstrap'
 
 const Shop = () => {
 
   const {shop} = useLoaderData()
 
-  const prices = shop.map((item) => (
-    <ShopCard item={item} />
+  const items = shop.map((item) => (
+    <ShopCard key={item.itemId} item={item} />
   ))
   return (
-    <ul>
-      {prices}
-    </ul>
+    <Row xs={1} md={2} lg={4}>
+        {items}
+    </Row>
   )
 }
 

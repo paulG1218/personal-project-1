@@ -5,7 +5,7 @@
       "isBoulder": false,
       "date": "2023-03-15",
       "title": "Crimson Crux",
-      "isPublic": "true",
+      "isPublic": true,
       "img": ""
     },
     {
@@ -14,6 +14,7 @@
       "isBoulder": true,
       "date": "2023-04-02",
       "title": "Boulder Bash",
+      "isPublic": true,
       "img": ""
     },
     {
@@ -22,6 +23,7 @@
       "isBoulder": false,
       "date": "2023-05-20",
       "title": "Rocky Ramp",
+      "isPublic": true,
       "img": ""
     },
     {
@@ -30,6 +32,7 @@
       "isBoulder": true,
       "date": "2023-06-10",
       "title": "SlabMaster",
+      "isPublic": true,
       "img": ""
     }
   ]

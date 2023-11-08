@@ -21,7 +21,8 @@ const Register = () => {
       switch (res.data.message) {
         case ('Registered'): 
         dispatch({
-            type: 'authenticated'
+            type: 'authenticated',
+            payload: res.data.userId
         })
         navigate('/climbs')
           break

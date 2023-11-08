@@ -12,13 +12,14 @@ console.log('Creating climbs...');
 const climbsInDB = await Promise.all(
   climbData.map((climb) => {
     const date = new Date(Date.parse(climb.date));
-    const { title, description, difficulty, isBoulder } = climb;
+    const { title, description, difficulty, isBoulder, isPublic } = climb;
 
     const newClimb = Climb.create({
       title: title,
       description: description,
       difficulty: difficulty,
       isBoulder: isBoulder,
+      isPublic: isPublic,
       date: date
     });
 

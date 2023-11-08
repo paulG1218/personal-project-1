@@ -21,14 +21,14 @@ const NavBar = () => {
   const sessionCheck = async () => {
       await axios.get('/sessionCheck')
           .then(res => {
-              if (res.data.user) {
+              if (res.data.userId) {
                   dispatch({
                       type: 'authenticated',
-                      payload: res.data.user.userId
+                      payload: res.data.userId
                   })
                   console.log(res.data.userId)
               } else {
-                  console.log(res.data.user)
+                  console.log(res.data)
               }
           })
         }
