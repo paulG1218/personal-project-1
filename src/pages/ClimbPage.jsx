@@ -1,19 +1,43 @@
-import React, { useState } from 'react'
-import { useLoaderData } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useLoaderData, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Button, Col, Container, Row } from 'react-bootstrap'
 import EditClimbForm from '../components/EditClimbForm'
+import axios from 'axios'
 
 const ClimbPage = () => {
+  
+  const {climb} = useLoaderData()
+
+  const navigate = useNavigate()
+  
+  const {climbId, title, difficulty, description, isBoulder, img} = climb
 
   const [isEditing, setIsEditing] = useState(false)
 
   const userId = useSelector(state => state.login.userId)
 
+  const handleEditClimb = async (event, formData) => {
+    event.preventDefault()
 
-  const {climb} = useLoaderData()
+    const res = await axios.put(`/api/editClimb/${climbId}`, formData)
 
-  console.log(userId, isEditing)
+    switch(res.data.message) {
+      case "Updated":
+        setIsEditing(false)
+
+        break
+        default:
+          alert('eat rocks')
+    }
+
+
+  }
+
+  
+
+  // useEffect(() => , [isEditing])
+
   if (isEditing === false) {
 
     return (
@@ -28,18 +52,34 @@ const ClimbPage = () => {
             </Row>
             }
             <Row>
+              <Col>Title:</Col>
+              <Col>{title}</Col>
+            </Row>
+            <Row>
+              <Col>Type:</Col>
+              {isBoulder &&
+                <Col>Boulder</Col>
+              }
+              {!isBoulder &&
+                <Col>Route</Col>
+              }
+              
+            </Row>
+            <Row>
+              <Col>Title:</Col>
+              <Col>{title}</Col>
+            </Row>
+            <Row>
               <Col>
-                {climb.description}
+                {description}
               </Col>
             </Row>
       </Container>
     )
 } else {
-  console.log(climb.userId)
-  console.log(isEditing)
   return (
     <Container>
-      <EditClimbForm climb={climb}/>
+      <EditClimbForm climb={climb} handleEditClimb={handleEditClimb}/>
     </Container>
   )
 }

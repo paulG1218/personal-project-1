@@ -126,6 +126,29 @@ const authFunctions = {
         console.log(newClimb)
 
         return
+    },
+
+    editClimb: async (req, res) => {
+
+        const {title, difficulty, isBoulder, description, img, isPublic} = req.body
+        const {climbId} = req.params
+
+        console.log(title, climbId)
+
+        const climb = await Climb.findByPk(climbId)
+
+        await climb.update({
+            title: title,
+            difficulty: difficulty,
+            isBoulder: isBoulder,
+            description: description,
+            img: img,
+            isPublic: isPublic
+        })
+
+        console.log(climb)
+
+        res.json({message: "Updated"})
     }
 }
 
