@@ -1,6 +1,5 @@
 const initialState = {
-    userId: null,
-    isEditing: false
+    userId: null
 }
 
 

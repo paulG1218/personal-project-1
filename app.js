@@ -47,5 +47,4 @@ app.post('/api/register', authFunctions.register)
 app.post('/api/createClimb', authFunctions.createClimb)
 
 
-
 ViteExpress.listen(app, port, () => console.log(`Server is listening on http://localhost:${port}`));
