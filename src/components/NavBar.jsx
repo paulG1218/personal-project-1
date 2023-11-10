@@ -52,7 +52,7 @@ const NavBar = () => {
                 Shop
               </NavLink>
             </Nav>
-            <Nav>
+            <Nav className='justify-content-end'>
               {userId &&
               <NavLink to='/' onClick={logout}>
                 Log out
@@ -63,11 +63,6 @@ const NavBar = () => {
                 Log in
               </NavLink>
               }
-            </Nav>
-            <Nav>
-              <NavLink>
-
-              </NavLink>
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -1,4 +1,4 @@
-import { User, Climb, Shop } from "../model.js";
+import { User, Climb, Shop } from "../db/model.js";
 
 const authFunctions = {
     login: async (req, res) => {
@@ -149,9 +149,20 @@ const authFunctions = {
             isPublic: isPublic
         })
 
-        console.log(climb)
-
         res.json({message: "Updated"})
+    },
+
+    deleteClimb: async (req, res) => {
+
+        const {climbId} = req.params
+
+        await Climb.destroy({
+            where: {
+                climbId: climbId
+            }
+        })
+
+        res.json({message: 'Deleted'})
     }
 }
 

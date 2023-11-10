@@ -1,7 +1,7 @@
 import { DataTypes, Model } from 'sequelize';
 import util from 'util';
-import connectToDB from './src/db.js';
-import authFunctions from './handlers/authHandlers.js';
+import connectToDB from './db.js';
+import authFunctions from '../server/handlers.js';
 
 export const db = await connectToDB('postgresql:///project_db');
 

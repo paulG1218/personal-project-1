@@ -3,12 +3,15 @@ import ClimbCard from '../components/ClimbCard'
 import ShopCard from '../components/ShopCard'
 import { useLoaderData } from 'react-router-dom'
 import lodash from 'lodash'
+import { Container, Row } from 'react-bootstrap'
 
 const Homepage = () => {
 
   const {climbs, shop} = useLoaderData()
 
-  const randomClimbs = lodash.sampleSize(climbs, 2)
+  const publicClimbs = climbs.filter((climb) => climb.isPublic)
+
+  const randomClimbs = lodash.sampleSize(publicClimbs, 2)
 
   const randomClimbCards = randomClimbs.map((climb) => (
     <ClimbCard key={climb.climbId} climb={climb}/>
@@ -20,11 +23,13 @@ const Homepage = () => {
     <ShopCard key={item.itemId} item={item} />
   ))
   return (
-    <div>
-      <h1>Home</h1>
-      {randomClimbCards}
-      {randomItemCards}
-    </div>
+    <Container>
+      <Row>
+        <h1>Home</h1>
+        {randomClimbCards}
+        {randomItemCards}
+      </Row>
+    </Container>
   )
 }
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Row, Col, Button, Form, ButtonGroup, ToggleButton } from 'react-bootstrap'
 import { useState } from 'react'
 
-const EditClimbForm = ({climb, handleEditClimb}) => {
+const EditClimbForm = ({climb, handleEditClimb, handleDelete}) => {
 
     const {title, difficulty, isBoulder, isPublic, description, img} = climb
 
@@ -34,7 +34,7 @@ const EditClimbForm = ({climb, handleEditClimb}) => {
 
 
     return (
-        <Container fluid xs={{span: 4, offset: 3}}>
+        <Container fluid >
             <Row>
             <Col xs={{span: 1, offset: 11}}>
                 <Button variant="primary" type='input' onClick={(e) => handleEditClimb(e, {
@@ -218,6 +218,11 @@ const EditClimbForm = ({climb, handleEditClimb}) => {
                         </ToggleButton>
                     ))}
                     </ButtonGroup>
+                </Col>
+            </Row>
+            <Row>
+                <Col  className="d-grid" >
+                    <Button variant='danger' onClick={handleDelete}>Delete</Button>
                 </Col>
             </Row>
     </Container>

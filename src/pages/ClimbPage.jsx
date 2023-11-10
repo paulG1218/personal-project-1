@@ -36,6 +36,18 @@ const ClimbPage = () => {
 
   }
 
+  const handleDelete = async () => {
+    if (!confirm(`Are you sure you want to delete ${title}?`)) {
+      return
+    }
+    const res = await axios.delete(`/api/deleteClimb/${climbId}`)
+
+    switch(res.data.message) {
+      case('Deleted'):
+      navigate('/climbs')
+    }
+  }
+
   if (isEditing === false) {
 
     return (
@@ -82,7 +94,7 @@ const ClimbPage = () => {
 } else {
   return (
     <Container>
-      <EditClimbForm climb={climb} handleEditClimb={handleEditClimb}/>
+      <EditClimbForm climb={climb} handleEditClimb={handleEditClimb} handleDelete={handleDelete}/>
     </Container>
   )
 }

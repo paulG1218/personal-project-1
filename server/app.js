@@ -1,9 +1,9 @@
 import express from 'express'
 import session from 'express-session';
 import ViteExpress from 'vite-express'
-import {Climb, User, Shop} from './model.js'
+import {Climb, User, Shop} from '../model.js'
 import morgan from 'morgan';
-import authFunctions from './handlers/authHandlers.js';
+import authFunctions from './handlers.js';
 
 const app = express();
 const port = '8000';
@@ -47,6 +47,8 @@ app.post('/api/register', authFunctions.register)
 app.post('/api/createClimb', authFunctions.createClimb)
 
 app.put('/api/editClimb/:climbId', authFunctions.editClimb)
+
+app.delete('/api/deleteClimb/:climbId', authFunctions.deleteClimb)
 
 
 ViteExpress.listen(app, port, () => console.log(`Server is listening on http://localhost:${port}`));

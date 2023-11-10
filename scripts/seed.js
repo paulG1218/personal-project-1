@@ -1,4 +1,4 @@
-import {Climb, User, Shop, db} from '../model.js'
+import {Climb, User, Shop, db} from '../db/model.js'
 import climbData from './data/climbs.json' assert {type: 'json'}
 import shopData from './data/shop.json' assert {type: 'json'}
 import userData from './data/users.json' assert {type: 'json'}
@@ -37,7 +37,7 @@ const shopInDB = await Promise.all(
     })
     
     )
-    
+
     console.log('Creating climbs...');
     const climbsInDB = await Promise.all(
       climbData.map((climb) => {
