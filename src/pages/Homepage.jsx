@@ -17,7 +17,7 @@ const Homepage = () => {
   const randomItems = lodash.sampleSize(shop, 2)
 
   const randomItemCards = randomItems.map((item) => (
-    <ShopCard item={item} />
+    <ShopCard key={item.itemId} item={item} />
   ))
   return (
     <div>

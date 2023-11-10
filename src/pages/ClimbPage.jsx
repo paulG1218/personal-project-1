@@ -36,10 +36,6 @@ const ClimbPage = () => {
 
   }
 
-  
-
-  // useEffect(() => , [isEditing])
-
   if (isEditing === false) {
 
     return (

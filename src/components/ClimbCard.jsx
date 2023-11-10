@@ -5,11 +5,9 @@ const ClimbCard = ({climb}) => {
 
     const {title, difficulty, date, img, climbId} = climb
 
-    const url = `/climbs/${climbId}`
-
   return (
     <Col>
-      <NavLink href={url} fluid='true'>
+      <NavLink href={`/climbs/${climbId}`} fluid='true'>
         <Card>
             <CardHeader>
                 {title}
