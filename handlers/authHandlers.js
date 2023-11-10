@@ -49,7 +49,10 @@ const authFunctions = {
     sessionCheck: async (req, res) => {
         if (req.session.user) {
             console.log(req.session.user.userId)
-            res.json({ userId: req.session.user.userId })
+            res.json({ 
+                userId: req.session.user.userId,
+                isAdmin: req.session.user.isAdmin
+             })
         } else {
             res.json("no user logged in")
         }

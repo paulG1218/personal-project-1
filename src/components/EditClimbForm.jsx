@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 const EditClimbForm = ({climb, handleEditClimb}) => {
 
-    const {title, difficulty, isBoulder, isPublic, description, image} = climb
+    const {title, difficulty, isBoulder, isPublic, description, img} = climb
 
     const [titleState, setTitle] = useState(title)
 
@@ -20,7 +20,7 @@ const EditClimbForm = ({climb, handleEditClimb}) => {
 
     const [descriptionState, setDescription] = useState(description)
     
-    const [imageState, setImage] = useState(image)
+    const [imageState, setImage] = useState(img)
 
     const boulderRadios = [
         { name: 'Boulder', value: '1' },
@@ -81,7 +81,8 @@ const EditClimbForm = ({climb, handleEditClimb}) => {
                             checked={boulderRadioValue === radio.value}
                             onChange={(e) => {
                             setBoulderRadioValue(e.currentTarget.value)
-                            setIsBoulder(idx % 2 ? false : true)}}
+                            setIsBoulder(idx % 2 ? false : true)
+                            setDifficulty(idx % 2 ? '5.4' : 'V0')}}
                         >
                             {radio.name}
                         </ToggleButton>
@@ -187,7 +188,7 @@ const EditClimbForm = ({climb, handleEditClimb}) => {
                     <Form.Control
                         name="image"
                         id="image"
-                        type="file"
+                        type="text"
                         value={imageState}
                         required
                         onChange={(e) => setImage(e.target.value)}

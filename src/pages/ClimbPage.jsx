@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useLoaderData, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Button, Col, Container, Row } from 'react-bootstrap'
@@ -17,6 +17,8 @@ const ClimbPage = () => {
 
   const userId = useSelector(state => state.login.userId)
 
+  const isAdmin = useSelector(state => state.login.isAdmin)
+
   const handleEditClimb = async (event, formData) => {
     event.preventDefault()
 
@@ -25,7 +27,7 @@ const ClimbPage = () => {
     switch(res.data.message) {
       case "Updated":
         setIsEditing(false)
-
+        navigate(`/climbs/${climbId}`)
         break
         default:
           alert('eat rocks')
@@ -42,7 +44,7 @@ const ClimbPage = () => {
 
     return (
       <Container>
-        {userId === climb.userId &&
+        {(userId === climb.userId || isAdmin) &&
             <Row>
               <Col xs={{span: 1, offset: 11}}>
                 <Button variant="light" type='input' onClick={() => setIsEditing(true)}>
@@ -66,12 +68,17 @@ const ClimbPage = () => {
               
             </Row>
             <Row>
-              <Col>Title:</Col>
-              <Col>{title}</Col>
+              <Col>Difficulty:</Col>
+              <Col>{difficulty}</Col>
             </Row>
             <Row>
+              <Col>Description:</Col>
+              <Col>{description}</Col>
+            </Row>
+            <Row>
+              <Col>Image:</Col>
               <Col>
-                {description}
+                <img src={img} alt={`image of ${title}`}/>
               </Col>
             </Row>
       </Container>
