@@ -1,7 +1,7 @@
 import express from 'express'
 import session from 'express-session';
 import ViteExpress from 'vite-express'
-import {Climb, User, Shop} from '../model.js'
+import {Climb, User, Shop} from '../db/model.js'
 import morgan from 'morgan';
 import authFunctions from './handlers.js';
 
