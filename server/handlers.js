@@ -51,7 +51,8 @@ const authFunctions = {
             console.log(req.session.user.userId)
             res.json({ 
                 userId: req.session.user.userId,
-                isAdmin: req.session.user.isAdmin
+                isAdmin: req.session.user.isAdmin,
+                username: req.session.user.username
              })
         } else {
             res.json("no user logged in")
@@ -163,6 +164,33 @@ const authFunctions = {
         })
 
         res.json({message: 'Deleted'})
+    },
+
+    userProfile: async (req, res) => {
+        const {userId} = req.params
+
+        const user = await User.findByPk(userId)
+
+        res.json({
+            message: 'User found',
+            user: user
+        })
+    },
+
+    changeUserProfile: async (req, res) => {
+
+        const {username, password} = req.body
+
+        const {userId} = req.params
+
+        const user = await User.findByPk(userId)
+
+        const newUser = await user.update({
+            username: username,
+            password: password
+        })
+
+        res.json({message: 'Updated', user: newUser})
     }
 }
 

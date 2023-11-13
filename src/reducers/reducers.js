@@ -1,6 +1,7 @@
 const initialState = {
     userId: null,
-    isAdmin: false
+    isAdmin: false,
+    username: null
 }
 
 
@@ -11,7 +12,8 @@ const loginReducer = (state = initialState, action) => {
         return {
             ...state,
             userId: action.payload.userId,
-            isAdmin: action.payload.isAdmin
+            isAdmin: action.payload.isAdmin,
+            username: action.payload.username
         }
         case('logout'): 
         return{

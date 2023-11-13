@@ -14,7 +14,7 @@ const ShopCard = ({item}) => {
                     </CardHeader>
                     {/* <CardImg alt={title} src={img}/> TODO */}
                     <CardBody>
-                        {price}
+                        ${price}
                         <br />
                         {description}
                     </CardBody>

@@ -50,5 +50,9 @@ app.put('/api/editClimb/:climbId', authFunctions.editClimb)
 
 app.delete('/api/deleteClimb/:climbId', authFunctions.deleteClimb)
 
+app.get('/api/profile/:userId', authFunctions.userProfile)
+
+app.put('/api/profile/:userId', authFunctions.changeUserProfile)
+
 
 ViteExpress.listen(app, port, () => console.log(`Server is listening on http://localhost:${port}`));

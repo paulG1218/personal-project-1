@@ -11,6 +11,7 @@ import Login from './pages/Login.jsx';
 import axios from 'axios';
 import Register from './pages/Register';
 import CreateClimb from './pages/CreateClimb';
+import Profile from './pages/Profile.jsx';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -86,6 +87,17 @@ const router = createBrowserRouter(
         <Route 
             path='/createClimb'
             element={<CreateClimb/>}
+        />
+
+        //User Profile
+
+        <Route 
+            path='/profile/:userId'
+            element={<Profile/>}
+            loader={async ({params}) => {
+                const res = await axios.get(`/api/profile/${params.userId}`)
+                return {user: res.data.user}
+            }}
         />
 
         </Route>
