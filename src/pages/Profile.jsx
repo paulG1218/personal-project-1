@@ -22,9 +22,7 @@ const Profile = () => {
         })
       }
 
-      const handleSubmit = async (event, formData) => {
-
-        event.preventDefault()
+      const handleSubmit = async (formData) => {
 
         const res = await axios.put(`/api/profile/${user.userId}`, formData)
 
@@ -37,15 +35,23 @@ const Profile = () => {
         }
       }
 
+      const handleDelete = async () => {
+        const res = await axios.delete(`/api/profile/${user.userId}`)
+        console.log(res.data)
+        logout()
+      }
+
+      const handleNewAdmin = async (e, newAdmin) => {
+        e.preventDefault()
+
+        const res = await axios.put('/api/newAdmin', newAdmin)
+        
+      }
+
   return (
     <Container>
-        <Row>
-            <Col>
-                {user.username}
-            </Col>
-        </Row>
         {user.userId === storeUserId &&
-            <EditProfileForm logout={logout} handleSubmit={handleSubmit} user={user}/>
+            <EditProfileForm logout={logout} handleSubmit={handleSubmit} user={user} handleDelete={handleDelete} handleNewAdmin={handleNewAdmin}/>
         }
     </Container>
   )

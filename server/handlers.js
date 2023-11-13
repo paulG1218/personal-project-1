@@ -191,6 +191,35 @@ const authFunctions = {
         })
 
         res.json({message: 'Updated', user: newUser})
+    },
+
+    deleteUser: async (req, res) => {
+        const {userId} = req.params
+
+        await User.destroy({
+            where: {
+                userId: userId
+            }
+        })
+
+        res.json('dead')
+
+    },
+
+    addNewAdmin: async (req, res) => {
+        const {newAdmin} = req.body
+
+        const user = await User.findOne({
+            where: {
+                username: newAdmin
+            }
+        })
+
+        await user.update({
+            isAdmin: true
+        })
+
+        res.json('Updated')
     }
 }
 
