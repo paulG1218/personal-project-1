@@ -267,13 +267,44 @@ const authFunctions = {
 
         if(item) {
             res.json({
-                message: 'item created',
+                message: 'Item created',
                 item: item
             })
             return
         } 
         res.json({message: 'Error'})
         return
+    },
+
+    editItem: async (req, res) => {
+
+        const {title, description, price, purchaseLink} = req.body
+
+        const {itemId} = req.params
+
+        const item = await Shop.findByPk(itemId)
+
+        await item.update({
+            title: title,
+            description: description,
+            price: price,
+            purchaseLink: purchaseLink
+        })
+
+        res.json({message: 'Updated'})
+
+    },
+    
+    deleteItem: async (req, res) => {
+        const {itemId} = req.params
+
+        await Shop.destroy({
+            where: {
+                itemId: itemId
+            }
+        })
+
+        res.json({message: 'Deleted'})
     }
 }
 

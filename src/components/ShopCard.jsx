@@ -8,7 +8,7 @@ const ShopCard = ({item}) => {
     return (
         <Col>
             <NavLink href={`/shop/${itemId}`}>
-                <Card>
+                <Card className='mb-3'>
                     <CardHeader>
                         {title}
                     </CardHeader>

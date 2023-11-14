@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { Button, Form, Row } from 'react-bootstrap'
+import { Button, Col, Form, Row } from 'react-bootstrap'
 
 const CreateItemForm = ({handleCreateItem}) => {
 
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
-    const [price, setPrice] = useState(0.00)
+    const [price, setPrice] = useState(null)
     const [purchaseLink, setPurchaseLink] = useState('')
 
   return (
@@ -16,47 +16,65 @@ const CreateItemForm = ({handleCreateItem}) => {
         purchaseLink: purchaseLink
     })}>
         <Row>
-            <Form.Label htmlFor='title'>Title:</Form.Label>
-            <Form.Control
-                name='title'
-                placeholder='title'
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                required
-            />
+            <Col>
+                <Form.Label htmlFor='title'>Title:</Form.Label>
+            </Col>
+            <Col>
+                <Form.Control
+                    name='title'
+                    placeholder='Title'
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    required
+                />
+            </Col>
         </Row>
         <Row>
-            <Form.Label htmlFor='description'>Description:</Form.Label>
+            <Col>
+                <Form.Label htmlFor='description'>Description:</Form.Label>
+            </Col>
+            <Col>
             <Form.Control
                 name='description'
-                placeholder='description'
+                placeholder='Description'
                 value={description}
                 type='textarea'
                 onChange={(e) => setDescription(e.target.value)}
                 required
             />
+            </Col>
         </Row>
         <Row>
-            <Form.Label htmlFor='price'>Price:</Form.Label>
-            <Form.Control
-                name='price'
-                placeholder='price'
-                value={price}
-                onChange={(e) => setPrice(+e.target.value)}
-                required
-            />
+            <Col>
+                <Form.Label htmlFor='price'>Price:</Form.Label>
+            </Col>
+            <Col>
+                <Form.Control
+                    name='price'
+                    placeholder='Price'
+                    value={price}
+                    onChange={(e) => setPrice(+e.target.value)}
+                    required
+                />
+            </Col>
         </Row>
         <Row>
-            <Form.Label htmlFor='purchaseLink'>Purchase Link:</Form.Label>
+            <Col>
+                <Form.Label htmlFor='purchaseLink'>Purchase Link:</Form.Label>
+            </Col>
+            <Col>
             <Form.Control
                 name='purchaseLink'
-                placeholder='purchaseLink'
+                placeholder='URL'
                 value={purchaseLink}
                 onChange={(e) => setPurchaseLink(e.target.value)}
             />
+            </Col>
         </Row>
         <Row>
-            <Button type='submit'>Create!</Button>
+            <Col>
+                <Button type='submit'>Create!</Button>
+            </Col>
         </Row>
     </Form>
   )

@@ -8,7 +8,7 @@ const ClimbCard = ({climb}) => {
   return (
     <Col>
       <NavLink href={`/climbs/${climbId}`} fluid='true'>
-        <Card>
+        <Card className='mb-3'>
             <CardHeader>
                 {title}
             </CardHeader>
