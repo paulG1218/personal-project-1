@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import { Button, Col, Form, Row } from 'react-bootstrap'
+import { Alert, Button, Col, Form, Row } from 'react-bootstrap'
 
-const EditProfileForm = ({logout, handleSubmit, user, handleDelete, handleNewAdmin}) => {
+const EditProfileForm = ({logout, handleSubmit, user, handleDelete, handleNewAdmin, showAdminConfirm, showNoUsernameAlert, showNoUserFoundAlert, showErrorAlert}) => {
 
     const {username, password} = user
 
     const [usernameState, setUsername] = useState(username)
     const [passwordState, setPassword] = useState(password)
-    const [newAdmin, setNewAdmin] = useState()
+    const [newAdmin, setNewAdmin] = useState('')
 
     const [isEditing, setIsEditing] = useState(false)
 
@@ -74,20 +74,40 @@ const EditProfileForm = ({logout, handleSubmit, user, handleDelete, handleNewAdm
         </Row>
         {user.isAdmin &&
             <Form 
-                onSubmit={(e) => handleNewAdmin(e, newAdmin)}
+                onSubmit={(e) => handleNewAdmin(e, {newAdmin: newAdmin})}
             >
-            <Form.Control
-                placeholder='New admin username'
-                value={newAdmin}
-                onChange={(e) => setNewAdmin(e.target.value)}
-            >
-
-            </Form.Control>
-            <Button 
-                type='submit'
-            >
-                Add admin
-            </Button>
+            <Row >
+                <Col xs={{span: 4, offset: 3}} >
+                    <Form.Control
+                        placeholder='New admin username'
+                        value={newAdmin}
+                        onChange={(e) => setNewAdmin(e.target.value)}
+                     />
+                </Col>
+                <Col xs={{span: 2, offset: 0}}>
+                    <Button 
+                        type='submit'
+                    >
+                        Add admin
+                    </Button>
+                </Col>
+            </Row>
+            <Row>
+                <Col xs={{span: 4, offset: 4}}>
+                    <Alert variant='success' show={showAdminConfirm}>
+                        Admin added!
+                    </Alert>
+                    <Alert variant='danger' show={showNoUsernameAlert}>
+                        Please enter a username first!
+                    </Alert>
+                    <Alert variant='danger' show={showNoUserFoundAlert}>
+                        User does not exist!
+                    </Alert>
+                    <Alert variant='danger' show={showErrorAlert}>
+                        Something went wrong
+                    </Alert>
+                </Col>
+            </Row>
         </Form>}
     </>
   )

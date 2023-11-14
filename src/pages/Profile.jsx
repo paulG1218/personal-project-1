@@ -10,6 +10,11 @@ const Profile = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
+    const [showAdminConfirm, setShowAdminConfirm] = useState(false)
+    const [showNoUsernameAlert, setShowNoUsernameAlert] = useState(false)
+    const [showNoUserFoundAlert, setShowNoUserFoundAlert] = useState(false)
+    const [showErrorAlert, setShowErrorAlert] = useState(false)
+
     const storeUserId = useSelector(state => state.login.userId)
 
     const {user} = useLoaderData()
@@ -45,13 +50,45 @@ const Profile = () => {
         e.preventDefault()
 
         const res = await axios.put('/api/newAdmin', newAdmin)
-        
+
+        switch(res.data.message) {
+            case ('Updated'):
+                setShowAdminConfirm(true)
+                setTimeout(() => setShowAdminConfirm(false), 2000)
+                break
+            case ('No username'):
+                setShowNoUsernameAlert(true)
+                setTimeout(() => setShowNoUsernameAlert(false), 2000)
+                break
+            case ('No user'): 
+                setShowNoUserFoundAlert(true)
+                setTimeout(() => setShowNoUserFoundAlert(false), 2000)
+                break
+            default: 
+                setShowErrorAlert(true)
+                setTimeout(() => setShowErrorAlert(false), 2000)
+                break
+
+
+            
+        }
+
       }
 
   return (
-    <Container>
+    <Container fluid>
         {user.userId === storeUserId &&
-            <EditProfileForm logout={logout} handleSubmit={handleSubmit} user={user} handleDelete={handleDelete} handleNewAdmin={handleNewAdmin}/>
+            <EditProfileForm 
+                logout={logout}
+                handleSubmit={handleSubmit}
+                user={user}
+                handleDelete={handleDelete}
+                handleNewAdmin={handleNewAdmin}
+                showAdminConfirm={showAdminConfirm}
+                showNoUsernameAlert={showNoUsernameAlert}
+                showNoUserFoundAlert={showNoUserFoundAlert}
+                showErrorAlert={showErrorAlert}
+            />
         }
     </Container>
   )

@@ -207,7 +207,13 @@ const authFunctions = {
     },
 
     addNewAdmin: async (req, res) => {
+
         const {newAdmin} = req.body
+
+        if(!newAdmin || newAdmin === '') {
+            res.json({message: 'No username'})
+            return
+        }
 
         const user = await User.findOne({
             where: {
@@ -215,11 +221,18 @@ const authFunctions = {
             }
         })
 
+        if (!user) {
+            res.json({message: 'No user'})
+            return
+        }
+
         await user.update({
             isAdmin: true
         })
 
-        res.json('Updated')
+        res.json({message: 'Updated'})
+        console.log('updated')
+        return
     }
 }
 
