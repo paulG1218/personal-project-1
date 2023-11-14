@@ -12,6 +12,7 @@ import axios from 'axios';
 import Register from './pages/Register';
 import CreateClimb from './pages/CreateClimb';
 import Profile from './pages/Profile.jsx';
+import CreateItem from './pages/CreateItem.jsx';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -98,6 +99,13 @@ const router = createBrowserRouter(
                 const res = await axios.get(`/api/profile/${params.userId}`)
                 return {user: res.data.user}
             }}
+        />
+
+        //Create shop item
+
+        <Route
+            path='/createItem'
+            element={<CreateItem/>}
         />
 
         </Route>

@@ -233,6 +233,47 @@ const authFunctions = {
         res.json({message: 'Updated'})
         console.log('updated')
         return
+    },
+
+    createItem: async (req, res) => {
+
+         const {title, description, price, purchaseLink} = req.body
+
+        const existingItem = await Shop.findOne({
+            where: {
+                title: title
+            }
+        }) 
+
+        if (existingItem) {
+            res.json({
+                message: 'Title taken'
+            })
+            return
+        }
+
+        await Shop.create({
+            title: title,
+            description: description,
+            price: price,
+            purchaseLink: purchaseLink
+        })
+
+        const item = await Shop.findOne({
+            where: {
+                title: title
+            }
+        })
+
+        if(item) {
+            res.json({
+                message: 'item created',
+                item: item
+            })
+            return
+        } 
+        res.json({message: 'Error'})
+        return
     }
 }
 

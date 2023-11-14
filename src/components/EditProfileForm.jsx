@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Alert, Button, Col, Form, Row } from 'react-bootstrap'
 
 const EditProfileForm = ({logout, handleSubmit, user, handleDelete, handleNewAdmin, showAdminConfirm, showNoUsernameAlert, showNoUserFoundAlert, showErrorAlert}) => {
@@ -10,6 +10,8 @@ const EditProfileForm = ({logout, handleSubmit, user, handleDelete, handleNewAdm
     const [newAdmin, setNewAdmin] = useState('')
 
     const [isEditing, setIsEditing] = useState(false)
+
+    useEffect(() => setNewAdmin(''), [showAdminConfirm])
 
   return (
     <>
