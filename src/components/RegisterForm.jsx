@@ -48,9 +48,6 @@ const RegisterForm = ({onRegister}) => {
       {newPassword === confirmPassword && newPassword !== '' &&
       <button type="submit">Register</button>
       }
-
-
-
       
     </form>
   )

@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import { Container, Navbar, Nav, NavLink } from 'react-bootstrap'
+import { Container, Navbar, Nav, NavLink, NavDropdown } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
 const NavBar = () => {
@@ -34,11 +34,10 @@ const NavBar = () => {
           <Navbar.Brand href='/'>BRAND</Navbar.Brand>
           <Navbar.Toggle/>
           <Navbar.Collapse>
-            <Nav>
-              <NavLink href='/climbs'>
-                Climbs
-              </NavLink>
-            </Nav>
+            <NavDropdown title='Climbs'>
+              <NavDropdown.Item href='/climbs'>All Climbs</NavDropdown.Item>
+              {/* TODO: add more filtered pages ex: My climbs (Only if user is logged in) */}
+            </NavDropdown>
             <Nav>
               <NavLink href='/shop'>
                 Shop

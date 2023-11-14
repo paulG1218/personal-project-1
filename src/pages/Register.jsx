@@ -3,6 +3,7 @@ import RegisterForm from '../components/RegisterForm'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const Register = () => {
 
@@ -37,6 +38,7 @@ const Register = () => {
     <div>
       <RegisterForm onRegister={handleRegister}/>
       <p style={{color: 'red'}} id='error'></p>
+      <Link to='/login'>Already have an account?</Link>
     </div>
   )
 }
