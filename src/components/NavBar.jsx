@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom'
 
 const NavBar = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   const userId = useSelector(state => state.login.userId)
   const username = useSelector(state => state.login.username)
 
@@ -35,8 +37,15 @@ const NavBar = () => {
           <Navbar.Toggle/>
           <Navbar.Collapse>
             <NavDropdown title='Climbs'>
-              <NavDropdown.Item href='/climbs'>All Climbs</NavDropdown.Item>
-              {/* TODO: add more filtered pages ex: My climbs (Only if user is logged in) */}
+              <NavDropdown.Item onClick={() => {dispatch({type: 'filter', payload: 'All'}); navigate('/climbs')}}>All Climbs</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => {dispatch({type: 'filter', payload: 'Boulder'}); navigate('/climbs')}} >Boulders</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => {dispatch({type: 'filter', payload: 'Route'}); navigate('/climbs')}} >Routes</NavDropdown.Item>
+              {userId &&
+              <>
+                <NavDropdown.Divider/>
+                <NavDropdown.Item onClick={() => {dispatch({type: 'filter', payload: 'Private'}); navigate('/climbs')}}>My climbs</NavDropdown.Item>
+              </>
+              }
             </NavDropdown>
             <Nav>
               <NavLink href='/shop'>

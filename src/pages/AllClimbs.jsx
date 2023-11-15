@@ -1,25 +1,75 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useLoaderData } from 'react-router-dom'
 import ClimbCard from '../components/ClimbCard'
-import { Button, Card, Row } from 'react-bootstrap'
-import { useSelector } from 'react-redux'
+import { Button, Card, Col, Dropdown, Row } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
 
 const AllClimbs = () => {
 
+  const dispatch = useDispatch()
+
   const userId = useSelector(state => state.login.userId)
 
+  const filterState = useSelector(state => state.login.filterState)
+
     const {climbs} = useLoaderData()
+
+    const handleFilter = (filter) => {
+      dispatch({
+        type: 'filter',
+        payload: filter
+      })
+    }
 
     const climbCards = climbs.map((climb) => {
       
       if (climb.isPublic || climb.userId === userId) {
-        return (<ClimbCard key={climb.climbId} climb={climb}/>)
+        switch(filterState) {
+          case 'All':
+            return (<ClimbCard key={climb.climbId} climb={climb}/>)
+          case 'Private':
+            if (climb.userId === userId) {
+              console.log(climb.userId)
+              return (<ClimbCard key={climb.climbId} climb={climb}/>)
+            }
+            break
+          case 'Boulder':
+            if (climb.isBoulder) {
+              return (<ClimbCard key={climb.climbId} climb={climb}/>)
+            }
+            break
+          case 'Route':
+            if (!climb.isBoulder) {
+              return (<ClimbCard key={climb.climbId} climb={climb}/>)
+            }
+            break
+          default:
+            console.log(filterState)
+        }
       }
 
       })
 
   return (
     <>
+      <Row>
+        <Col xs={{span: 2}} className='mb-3'>
+          <Dropdown>
+            <Dropdown.Toggle variant='outline-secondary'>
+              Filter
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item onClick={() => handleFilter('All')}>All Climbs</Dropdown.Item>
+              <Dropdown.Item onClick={() => handleFilter('Boulder')}>Boulders</Dropdown.Item>
+              <Dropdown.Item onClick={() => handleFilter('Route')}>Routes</Dropdown.Item>
+              {userId &&
+                <Dropdown.Item onClick={() => handleFilter('Private')}>My Climbs</Dropdown.Item>
+              }
+            </Dropdown.Menu>
+          </Dropdown>
+        </Col>
+      </Row>
       <Row xs={1} md={2} lg={4}>
         {climbCards}
       </Row>

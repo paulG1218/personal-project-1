@@ -19,7 +19,7 @@ const EditItemForm = ({item, handleEditItem, handleDelete}) => {
                     title: titleState,
                     description: descriptionState,
                     purchaseLink: purchaseLinkState,
-                    description: descriptionState,
+                    price: priceState,
                 })}>
                     Save
                 </Button>

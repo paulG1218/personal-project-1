@@ -1,4 +1,5 @@
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import './App.css'
 import Root from './pages/Root.jsx'
 import ErrorPage from './pages/ErrorPage.jsx';
@@ -16,7 +17,7 @@ import CreateItem from './pages/CreateItem.jsx';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
-        <Route path='/' element={<Root />} errorElement={<ErrorPage/>} >
+        <Route path='/' element={<Root />} >
 
         // Homepage
         <Route 
