@@ -1,16 +1,36 @@
 import React from 'react'
-import {Card, CardBody, CardHeader, CardImg, Col, NavLink} from 'react-bootstrap'
+import {Card, CardBody, CardHeader, CardImg, Col, Container, NavLink, Row} from 'react-bootstrap'
+import { BsBootstrapFill, BsRSquareFill, BsLockFill } from "react-icons/bs";
 
 const ClimbCard = ({climb}) => {
 
-    const {title, difficulty, date, img, climbId} = climb
+    const {title, difficulty, date, img, isBoulder, isPublic, climbId} = climb
 
   return (
     <Col>
-      <NavLink href={`/climbs/${climbId}`} fluid='true'>
+      <NavLink href={`/climbs/${climbId}`}>
         <Card className='mb-3'>
-            <CardHeader>
+          <CardHeader>
+            <Container >
+              <Row>
+              {!isPublic &&
+                <Col >
+                  <BsLockFill/>
+                </Col>
+              }
+              <Col >
                 {title}
+              </Col>
+              {isBoulder ?
+                <Col >
+                  <BsBootstrapFill color='green' size={20} />
+                </Col>:
+                <Col>
+                  <BsRSquareFill color='red' size={20}/>
+                </Col>
+              }
+              </Row>
+              </Container>
             </CardHeader>
             <CardImg alt={title} src={img}/>
             <CardBody>
