@@ -42,7 +42,7 @@ Climb.init(
             default: true
         },
         title: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(14),
             allowNull: false
         }
         

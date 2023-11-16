@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useLoaderData, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { Button, Col, Container, Row } from 'react-bootstrap'
+import { Alert, Button, Col, Container, Row } from 'react-bootstrap'
 import EditClimbForm from '../components/EditClimbForm'
 import axios from 'axios'
 
@@ -14,6 +14,8 @@ const ClimbPage = () => {
   const {climbId, title, difficulty, description, isBoulder, img} = climb
 
   const [isEditing, setIsEditing] = useState(false)
+
+  const [alertText, setAlertText] = useState('')
 
   const userId = useSelector(state => state.login.userId)
 
@@ -30,7 +32,7 @@ const ClimbPage = () => {
         navigate(`/climbs/${climbId}`)
         break
         default:
-          alert('eat rocks')
+          handleError(res.data.message)
     }
 
 
@@ -46,6 +48,11 @@ const ClimbPage = () => {
       case('Deleted'):
       navigate('/climbs')
     }
+  }
+
+  const handleError = (error) => {
+    setAlertText(error)
+    setTimeout(() => setAlertText(''), 2000)
   }
 
   if (isEditing === false) {
@@ -95,6 +102,9 @@ const ClimbPage = () => {
   return (
     <Container>
       <EditClimbForm climb={climb} handleEditClimb={handleEditClimb} handleDelete={handleDelete}/>
+      {alertText !== '' &&
+        <Alert variant='danger'>{alertText}</Alert>
+      }
     </Container>
   )
 }

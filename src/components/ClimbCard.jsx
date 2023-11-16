@@ -11,7 +11,6 @@ const ClimbCard = ({climb}) => {
       <NavLink href={`/climbs/${climbId}`}>
         <Card className='mb-3'>
           <CardHeader className='p-0 pt-2 pb-3'>
-            {/* <Container fluid> */}
               <Row>
                 <Col >
                   {!isPublic &&
@@ -29,7 +28,6 @@ const ClimbCard = ({climb}) => {
                   }
                 </Col>
               </Row>
-              {/* </Container> */}
             </CardHeader>
             <CardImg alt={title} src={img}/>
             <CardBody>

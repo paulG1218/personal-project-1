@@ -18,12 +18,15 @@ const CreateClimb = () => {
 
     switch(res.data.message){
       case('Climb created'):
-      console.log(res.data) 
-      navigate(`/climbs/${res.data.climb.climbId}`)
-      return
+        console.log(res.data) 
+        navigate(`/climbs/${res.data.climb.climbId}`)
+        return
       case('Title taken'): 
-      errTxt.innerText = 'Title taken'
-      return
+        errTxt.innerText = 'Title taken'
+        return
+      case('Title too long'): 
+        errTxt.innerText = 'Title cannot be more than 14 characters'
+        return
       default:
         errTxt.innerText = 'Something went wrong'
         console.log(res.data.climb)

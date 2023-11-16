@@ -95,6 +95,11 @@ const authFunctions = {
 
         const {title, difficulty, isBoulder, description, img, isPublic, userId} = req.body
 
+        if (title.length > 14) {
+            res.json({message: 'Title too long'})
+            return
+        }
+
         const climb = await Climb.findOne({
             where: {
                 title: title
@@ -138,6 +143,11 @@ const authFunctions = {
         const {climbId} = req.params
 
         console.log(title, climbId)
+
+        if (title.length > 14) {
+            res.json({message: 'Title cannot be longer than 14 characters'})
+            return
+        }
 
         const climb = await Climb.findByPk(climbId)
 

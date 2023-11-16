@@ -35,7 +35,7 @@ const EditClimbForm = ({climb, handleEditClimb, handleDelete}) => {
 
     return (
         <Container fluid >
-            <Row>
+            <Row className='mb-3'>
             <Col xs={{span: 1, offset: 11}}>
                 <Button variant="primary" type='input' onClick={(e) => handleEditClimb(e, {
                     title: titleState,
@@ -49,7 +49,7 @@ const EditClimbForm = ({climb, handleEditClimb, handleDelete}) => {
                 </Button>
               </Col>
             </Row>
-            <Row>
+            <Row className='mb-3'>
                 <Col>
                     <Form.Label htmlFor="title">Title:</Form.Label>
                 </Col>
@@ -64,7 +64,7 @@ const EditClimbForm = ({climb, handleEditClimb, handleDelete}) => {
                     />
                 </Col>
             </Row>
-            <Row>
+            <Row className='mb-3'>
                 <Col>
                     <Form.Label htmlFor='isBoulder'>Boulder or Route?</Form.Label>
                 </Col>
@@ -90,7 +90,7 @@ const EditClimbForm = ({climb, handleEditClimb, handleDelete}) => {
                     </ButtonGroup>
                 </Col>
             </Row>
-            <Row>
+            <Row className='mb-3'>
                 <Col>
                     <Form.Label htmlFor="difficulty">Difficulty:</Form.Label>
                 </Col>
@@ -165,7 +165,7 @@ const EditClimbForm = ({climb, handleEditClimb, handleDelete}) => {
                     }
                 </Col>
             </Row>
-            <Row>
+            <Row className='mb-3'>
                 <Col>
                     <Form.Label htmlFor="description">Description:</Form.Label>
                 </Col>
@@ -180,7 +180,7 @@ const EditClimbForm = ({climb, handleEditClimb, handleDelete}) => {
                 />
                 </Col>
             </Row>
-            <Row>
+            <Row className='mb-3'>
                 <Col>
                     <Form.Label htmlFor="image">Image:</Form.Label>
                 </Col>
@@ -195,7 +195,7 @@ const EditClimbForm = ({climb, handleEditClimb, handleDelete}) => {
                     />
                 </Col>
             </Row>
-            <Row>
+            <Row className='mb-3'>
                 <Col>
                     <Form.Label htmlFor='isPublic'>Public or Private?</Form.Label>
                 </Col>
@@ -220,9 +220,9 @@ const EditClimbForm = ({climb, handleEditClimb, handleDelete}) => {
                     </ButtonGroup>
                 </Col>
             </Row>
-            <Row>
-                <Col  className="d-grid" >
-                    <Button variant='danger' onClick={handleDelete}>Delete</Button>
+            <Row className='mb-3'>
+                <Col xs={{span: 2, offset: 10}}>
+                    <Button variant='danger' onClick={handleDelete}>Delete climb</Button>
                 </Col>
             </Row>
     </Container>
