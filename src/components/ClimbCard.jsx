@@ -10,27 +10,26 @@ const ClimbCard = ({climb}) => {
     <Col>
       <NavLink href={`/climbs/${climbId}`}>
         <Card className='mb-3'>
-          <CardHeader>
-            <Container >
+          <CardHeader className='p-0 pt-2 pb-3'>
+            {/* <Container fluid> */}
               <Row>
-              {!isPublic &&
                 <Col >
-                  <BsLockFill/>
+                  {!isPublic &&
+                    <BsLockFill/>
+                  }
                 </Col>
-              }
-              <Col >
-                {title}
-              </Col>
-              {isBoulder ?
+                <Col className='p-0' xs={{span: 7}}>
+                  {title}
+                </Col>
                 <Col >
-                  <BsBootstrapFill color='green' size={20} />
-                </Col>:
-                <Col>
-                  <BsRSquareFill color='red' size={20}/>
+                  {isBoulder ?
+                    <BsBootstrapFill color='green' size={20} />
+                    :
+                    <BsRSquareFill color='red' size={20}/>
+                  }
                 </Col>
-              }
               </Row>
-              </Container>
+              {/* </Container> */}
             </CardHeader>
             <CardImg alt={title} src={img}/>
             <CardBody>
