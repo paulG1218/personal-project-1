@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useLoaderData } from 'react-router-dom'
 import ClimbCard from '../components/ClimbCard'
-import { Button, Card, Col, Dropdown, Row } from 'react-bootstrap'
+import { Button, Card, Col, Dropdown, Form, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 
 const AllClimbs = () => {
@@ -11,6 +11,8 @@ const AllClimbs = () => {
   const userId = useSelector(state => state.login.userId)
 
   const filterState = useSelector(state => state.login.filterState)
+
+  const [searchBar, setSearchBar] = useState('')
 
     const {climbs} = useLoaderData()
 
@@ -24,27 +26,29 @@ const AllClimbs = () => {
     const climbCards = climbs.map((climb) => {
       
       if (climb.isPublic || climb.userId === userId) {
-        switch(filterState) {
-          case 'All':
-            return (<ClimbCard key={climb.climbId} climb={climb}/>)
-          case 'Private':
-            if (climb.userId === userId) {
-              console.log(climb.userId)
+        if(searchBar === '' || climb.title.toLowerCase().includes(searchBar)) {  
+          switch(filterState) {
+            case 'All':
               return (<ClimbCard key={climb.climbId} climb={climb}/>)
-            }
-            break
-          case 'Boulder':
-            if (climb.isBoulder) {
-              return (<ClimbCard key={climb.climbId} climb={climb}/>)
-            }
-            break
-          case 'Route':
-            if (!climb.isBoulder) {
-              return (<ClimbCard key={climb.climbId} climb={climb}/>)
-            }
-            break
-          default:
-            console.log(filterState)
+            case 'Private':
+              if (climb.userId === userId) {
+                console.log(climb.userId)
+                return (<ClimbCard key={climb.climbId} climb={climb}/>)
+              }
+              break
+            case 'Boulder':
+              if (climb.isBoulder) {
+                return (<ClimbCard key={climb.climbId} climb={climb}/>)
+              }
+              break
+            case 'Route':
+              if (!climb.isBoulder) {
+                return (<ClimbCard key={climb.climbId} climb={climb}/>)
+              }
+              break
+            default:
+              console.log(filterState)
+          }
         }
       }
 
@@ -52,6 +56,15 @@ const AllClimbs = () => {
 
   return (
     <>
+      <Row className='mb-3'>
+        <Col>
+          <Form.Control
+            placeholder='Search'
+            value={searchBar}
+            onChange={(e) => setSearchBar(e.target.value.toLowerCase())}
+          />
+        </Col>
+      </Row>
       <Row>
         <Col xs={{span: 2}} className='mb-3'>
           <Dropdown>
