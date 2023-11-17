@@ -1,22 +1,21 @@
-import React from 'react'
-import { useState } from 'react'
+import React from "react";
+import { useState } from "react";
 
-const RegisterForm = ({onRegister}) => {
+const RegisterForm = ({ onRegister }) => {
+  const [newUsername, setNewUsername] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-    const [newUsername, setNewUsername] = useState('')
-    const [newPassword, setNewPassword] = useState('')
-    const [confirmPassword, setConfirmPassword] = useState('')
-
-    return (
+  return (
     <form
-    onSubmit={(e) => {
+      onSubmit={(e) => {
         onRegister(e, {
           username: newUsername,
           password: newPassword,
-        })
+        });
       }}
     >
-        <label htmlFor="username">Username:</label>
+      <label htmlFor="username">Username:</label>
       <input
         name="username"
         id="username"
@@ -41,16 +40,15 @@ const RegisterForm = ({onRegister}) => {
         onChange={(e) => setConfirmPassword(e.target.value)}
       />
 
-        {(newPassword !== confirmPassword || newPassword === '' || confirmPassword === '') &&
-        <button disabled>Register</button>
-        }
+      {(newPassword !== confirmPassword ||
+        newPassword === "" ||
+        confirmPassword === "") && <button disabled>Register</button>}
 
-      {newPassword === confirmPassword && newPassword !== '' &&
-      <button type="submit">Register</button>
-      }
-      
+      {newPassword === confirmPassword && newPassword !== "" && (
+        <button type="submit">Register</button>
+      )}
     </form>
-  )
-}
+  );
+};
 
-export default RegisterForm
+export default RegisterForm;

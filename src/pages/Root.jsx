@@ -1,16 +1,15 @@
-import React, {useState} from 'react'
-import { Outlet } from 'react-router-dom'
-import NavBar from '../components/NavBar.jsx'
+import React, { useState } from "react";
+import { Outlet } from "react-router-dom";
+import NavBar from "../components/NavBar.jsx";
 
 const Root = () => {
-
-    return (
-      <>
-      <NavBar/>
+  return (
+    <>
+      <NavBar />
       <hr />
-      <Outlet/>
-      </>
-    )
-}
+      <Outlet />
+    </>
+  );
+};
 
-export default Root
+export default Root;

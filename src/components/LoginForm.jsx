@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function LoginForm({ onLogin }) {
-    const [username, setUsername] = useState('')   
-    const [password, setPassword] = useState('')
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     <form
@@ -10,7 +10,7 @@ export default function LoginForm({ onLogin }) {
         onLogin(e, {
           username: username,
           password: password,
-        })
+        });
       }}
     >
       <label htmlFor="username">Username:</label>
@@ -31,5 +31,5 @@ export default function LoginForm({ onLogin }) {
       />
       <button type="submit">Log In</button>
     </form>
-  )
+  );
 }
