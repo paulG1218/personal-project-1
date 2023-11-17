@@ -42,7 +42,7 @@ const shopInDB = await Promise.all(
     const climbsInDB = await Promise.all(
       climbData.map((climb) => {
         const date = new Date(Date.parse(climb.date));
-        const { title, description, difficulty, isBoulder, isPublic, userId } = climb;
+        const { title, description, difficulty, isBoulder, isPublic, img, userId } = climb;
     
         const newClimb = Climb.create({
           title: title,
@@ -51,6 +51,7 @@ const shopInDB = await Promise.all(
           isBoulder: isBoulder,
           isPublic: isPublic,
           date: date,
+          img: img,
           userId: userId
         });
     

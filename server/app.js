@@ -16,6 +16,7 @@ app.use(session({ secret: 'ssshhhhh', saveUninitialized: true, resave: false }))
 
 app.get('/api/climbs', async (req, res) => {
     const allClimbs = await Climb.findAll()
+    console.log(allClimbs)
     res.json(allClimbs)
 })
 

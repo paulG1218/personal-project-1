@@ -29,7 +29,7 @@ const ClimbCard = ({climb}) => {
                 </Col>
               </Row>
             </CardHeader>
-            <CardImg alt={title} src={img}/>
+            <CardImg variant='top' src={img} alt={title} style={{width: '10rem'}}/>
             <CardBody>
                 {difficulty}
                 <br/>

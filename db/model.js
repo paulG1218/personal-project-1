@@ -33,8 +33,8 @@ Climb.init(
             type: DataTypes.DATE,
             allowNull: false
         },
-        video: {
-            type: DataTypes.STRING,
+        img: {
+            type: DataTypes.TEXT,
             allowNull: true
         },
         isPublic: {
