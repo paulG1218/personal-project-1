@@ -7,13 +7,15 @@ const CreateItemForm = ({handleCreateItem}) => {
     const [description, setDescription] = useState('')
     const [price, setPrice] = useState(null)
     const [purchaseLink, setPurchaseLink] = useState('')
+    const [img, setImg] = useState('')
 
   return (
     <Form onSubmit={(e) => handleCreateItem(e, {
         title: title,
         description: description,
         price: price,
-        purchaseLink: purchaseLink
+        purchaseLink: purchaseLink,
+        img: img
     })}>
         <Row>
             <Col>
@@ -69,6 +71,19 @@ const CreateItemForm = ({handleCreateItem}) => {
                 value={purchaseLink}
                 onChange={(e) => setPurchaseLink(e.target.value)}
             />
+            </Col>
+        </Row>
+        <Row>
+            <Col>
+                <Form.Label htmlFor='img' value='Image URL:'/>
+            </Col>
+            <Col>
+                <Form.Control
+                    name='img'
+                    type='text'
+                    value={img}
+                    onChange={(e) => setImg(e.target.value)}
+                />
             </Col>
         </Row>
         <Row>

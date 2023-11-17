@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
-import { Row, Col, Button, Form } from 'react-bootstrap'
+import { Row, Col, Button, Form, ButtonGroup } from 'react-bootstrap'
 
 const EditItemForm = ({item, handleEditItem, handleDelete}) => {
 
-    const {title, itemId, description, price, purchaseLink} = item
+    const {title, itemId, description, price, purchaseLink, img} = item
 
     const [titleState, setTitleState] = useState(title)
     const [descriptionState, setDescriptionState] = useState(description)
     const [priceState, setPriceState] = useState(price)
     const [purchaseLinkState, setPurchaseLinkState] = useState(purchaseLink)
+    const [imgState, setImgState] = useState(`${img}`)
+    
 
 
   return (
@@ -20,6 +22,7 @@ const EditItemForm = ({item, handleEditItem, handleDelete}) => {
                     description: descriptionState,
                     purchaseLink: purchaseLinkState,
                     price: priceState,
+                    img: imgState
                 })}>
                     Save
                 </Button>
@@ -80,6 +83,25 @@ const EditItemForm = ({item, handleEditItem, handleDelete}) => {
                     required
                     onChange={(e) => setPurchaseLinkState(e.target.value)}
                 />
+            </Col>
+        </Row>
+        <Row>
+            <Col>
+                <Form.Label htmlFor='img'>Image URL:</Form.Label>
+            </Col>
+            <Col >
+            <ButtonGroup style={{width: '40rem'}}>
+                <Form.Control
+                    name='img'
+                    type='text'
+                    value={imgState}
+                    onChange={(e) => setImgState(e.target.value)}
+                />
+                <Button
+                    variant='secondary'
+                    onClick={() => setImgState('')}
+                >X</Button>
+            </ButtonGroup>
             </Col>
         </Row>
         <Row className='mb-3'>

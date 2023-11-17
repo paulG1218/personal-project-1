@@ -247,7 +247,7 @@ const authFunctions = {
 
     createItem: async (req, res) => {
 
-         const {title, description, price, purchaseLink} = req.body
+         const {title, description, price, purchaseLink, img} = req.body
 
         const existingItem = await Shop.findOne({
             where: {
@@ -266,7 +266,8 @@ const authFunctions = {
             title: title,
             description: description,
             price: price,
-            purchaseLink: purchaseLink
+            purchaseLink: purchaseLink,
+            img: img
         })
 
         const item = await Shop.findOne({
@@ -288,7 +289,7 @@ const authFunctions = {
 
     editItem: async (req, res) => {
 
-        const {title, description, price, purchaseLink} = req.body
+        const {title, description, price, purchaseLink, img} = req.body
 
         const {itemId} = req.params
 
@@ -298,7 +299,8 @@ const authFunctions = {
             title: title,
             description: description,
             price: price,
-            purchaseLink: purchaseLink
+            purchaseLink: purchaseLink,
+            img: img
         })
 
         res.json({message: 'Updated'})

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card, CardBody, CardHeader, CardImg, Col, Container, NavLink, Row} from 'react-bootstrap'
+import {Card, CardBody, CardHeader, CardImg, Col, Container, NavLink, Row, Image} from 'react-bootstrap'
 import { BsBootstrapFill, BsRSquareFill, BsLockFill } from "react-icons/bs";
 
 const ClimbCard = ({climb}) => {
@@ -7,7 +7,7 @@ const ClimbCard = ({climb}) => {
     const {title, difficulty, date, img, isBoulder, isPublic, climbId} = climb
 
   return (
-    <Col>
+    <Col className='mb-0'>
       <NavLink href={`/climbs/${climbId}`}>
         <Card className='mb-3'>
           <CardHeader className='p-0 pt-2 pb-3'>
@@ -29,7 +29,11 @@ const ClimbCard = ({climb}) => {
                 </Col>
               </Row>
             </CardHeader>
-            <CardImg variant='top' src={img} alt={title} style={{width: '10rem'}}/>
+            <Row className='mt-2 mb-0'>
+              <Col>
+                <CardImg variant='top' src={img} alt={title} style={{width: '10rem', borderWidth: '1px', borderStyle: 'solid', borderColor: 'grey', borderRadius: '5px'}} />
+              </Col>
+            </Row>
             <CardBody>
                 {difficulty}
                 <br/>

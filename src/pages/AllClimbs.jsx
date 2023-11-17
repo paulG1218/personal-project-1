@@ -66,7 +66,7 @@ const AllClimbs = () => {
         </Col>
       </Row>
       <Row>
-        <Col xs={{span: 2}} className='mb-3'>
+        <Col xs={{span: 2}}>
           <Dropdown>
             <Dropdown.Toggle variant='outline-secondary'>
               Filter

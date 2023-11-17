@@ -12,13 +12,14 @@ console.log('Seeding database...');
 console.log('Creating shop items...')
 const shopInDB = await Promise.all(
   shopData.map((item) => {
-    const {title, description, price, purchaseLink} = item
+    const {title, description, price, purchaseLink, img} = item
     
     const newShop = Shop.create({
       title: title,
       description: description,
       price: price,
-      purchaseLink: purchaseLink
+      purchaseLink: purchaseLink,
+      img: img
     })
     return newShop
   })
