@@ -1,4 +1,4 @@
-import { User, Climb, Shop } from "../db/model.js";
+import { User, Climb, Shop, Like } from "../db/model.js";
 
 const authFunctions = {
     login: async (req, res) => {
@@ -317,6 +317,39 @@ const authFunctions = {
         })
 
         res.json({message: 'Deleted'})
+    },
+
+    getUserLikes: async (req, res) => {
+
+        const allLikes = await Like.findAll()
+
+        res.json({message: 'Success', likes: allLikes})
+        return
+    },
+    
+    addLike: async (req, res) => {
+        const {climbId} = req.body
+
+        const {userId} = req.session.userId
+
+        await Like.create({
+            userId: userId,
+            climbId: climbId
+        })
+
+        res.json({message: 'Liked'})
+    },
+
+    getClimbLikes: async (req, res) => {
+        const {climbId} = req.params
+
+        const climbLikes = await Like.findAll({
+            where: {
+                climbId: climbId
+            }
+        })
+
+        res.json(climbLikes)
     }
 }
 

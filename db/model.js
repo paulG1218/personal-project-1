@@ -136,7 +136,7 @@ export class Like extends Model {
 Like.init(
     {
         likeId: {
-            type: DataTypes.NUMBER,
+            type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         }

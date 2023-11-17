@@ -65,5 +65,11 @@ app.put('/api/editItem/:itemId', authFunctions.editItem)
 
 app.delete('/api/deleteItem/:itemId', authFunctions.deleteItem)
 
+app.get('/api/userLikes', authFunctions.getUserLikes)
+
+app.post('/api/addLike', authFunctions.addLike)
+
+app.get('/api/climbLikes/:climbId', authFunctions.getClimbLikes)
+
 
 ViteExpress.listen(app, port, () => console.log(`Server is listening on http://localhost:${port}`));
