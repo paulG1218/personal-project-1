@@ -4,11 +4,11 @@ import NavBar from "../components/NavBar.jsx";
 
 const Root = () => {
   return (
-    <>
+    <div>
       <NavBar />
       <hr />
       <Outlet />
-    </>
+    </div>
   );
 };
 

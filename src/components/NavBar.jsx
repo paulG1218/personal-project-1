@@ -38,9 +38,9 @@ const NavBar = () => {
   useEffect(() => sessionCheck, [userId]);
 
   return (
-    <Navbar bg="dark" data-bs-theme="dark" className="text-light">
+    <Navbar bg="success" data-bs-theme="dark" className="text-light m-0">
       <Container fluid>
-        <Row className="min-vw-100">
+        <Row style={{minWidth: '100vw'}}>
           <Col xs={{ span: 1 }}>
             <Navbar.Brand href="/">
               <GiMountainClimbing className='mt-2' size={40} />
@@ -90,12 +90,12 @@ const NavBar = () => {
                   )}
                 </NavDropdown>
               </Col>
-              <Col xs={{ span: 1 }} className="fs-4">
+              <Col xs={{span: 1}} className="fs-4">
                 <Nav>
                   <NavLink href="/shop" className="text-light">Shop</NavLink>
                 </Nav>
               </Col>
-              <Col xs={{ span: 2, offset: 8 }} className="fs-4">
+              <Col xs={{offset: 9 }} className="fs-4">
                 <Nav>
                   {userId && (
                     <NavLink className="text-light" href={`/profile/${userId}`}>{username}</NavLink>

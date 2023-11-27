@@ -18,7 +18,7 @@ const ClimbCard = ({ climb }) => {
   return (
     <Col className="mb-0">
       <NavLink href={`/climbs/${climbId}`}>
-        <Card className="mb-3 text-light bg-dark">
+        <Card className="mb-3 text-light bg-dark" border="white">
           <Row className="mt-2 mb-0">
             <Col>
               <CardImg

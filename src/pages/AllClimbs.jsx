@@ -70,7 +70,7 @@ const AllClimbs = () => {
               Filter
             </Dropdown.Toggle>
 
-            <Dropdown.Menu>
+            <Dropdown.Menu variant="dark">
               <Dropdown.Item onClick={() => handleFilter("All")}>
                 All Climbs
               </Dropdown.Item>
