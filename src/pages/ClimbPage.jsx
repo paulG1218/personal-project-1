@@ -88,7 +88,7 @@ const ClimbPage = () => {
         <Row>
           <Col>Image:</Col>
           <Col>
-            <img src={img} alt={`image of ${title}`} />
+            <img style={{width: '30rem'}} src={img} alt={`image of ${title}`} />
           </Col>
         </Row>
       </Container>

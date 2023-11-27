@@ -54,9 +54,10 @@ const AllClimbs = () => {
   return (
     <>
       <Row className="mb-3">
-        <Col>
+        <Col >
           <Form.Control
-            placeholder="Search"
+            className="text-light bg-secondary"
+            placeholder='Search'
             value={searchBar}
             onChange={(e) => setSearchBar(e.target.value.toLowerCase())}
           />
@@ -65,7 +66,7 @@ const AllClimbs = () => {
       <Row>
         <Col xs={{ span: 2 }}>
           <Dropdown>
-            <Dropdown.Toggle variant="outline-secondary">
+            <Dropdown.Toggle className='mb-3 text-light bg-secondary' variant="outline-light">
               Filter
             </Dropdown.Toggle>
 
@@ -88,7 +89,7 @@ const AllClimbs = () => {
           </Dropdown>
         </Col>
       </Row>
-      <Row xs={1} md={2} lg={4}>
+      <Row xs={1} md={2} lg={6}>
         {climbCards}
       </Row>
       {userId && <Button href="/createClimb">Create a climb</Button>}

@@ -11,48 +11,17 @@ import {
   Image,
 } from "react-bootstrap";
 import { BsBootstrapFill, BsRSquareFill, BsLockFill } from "react-icons/bs";
-import axios from "axios";
 
 const ClimbCard = ({ climb }) => {
   const { title, difficulty, date, img, isBoulder, isPublic, climbId } = climb;
 
-  const getLikes = async () => {
-    const res = await axios.get(`/api/climbLikes/${climbId}`);
-
-    return res.data.length;
-  };
-
-  const handleLike = async () => {
-    const res = await axios.post("/api/addLike", { climbId: climbId });
-
-    console.log(res.data);
-  };
-
-  console.log(getLikes());
-
   return (
     <Col className="mb-0">
       <NavLink href={`/climbs/${climbId}`}>
-        <Card className="mb-3">
-          <CardHeader className="p-0 pt-2 pb-3">
-            <Row>
-              <Col>{!isPublic && <BsLockFill />}</Col>
-              <Col className="p-0" xs={{ span: 7 }}>
-                {title}
-              </Col>
-              <Col>
-                {isBoulder ? (
-                  <BsBootstrapFill color="green" size={20} />
-                ) : (
-                  <BsRSquareFill color="red" size={20} />
-                )}
-              </Col>
-            </Row>
-          </CardHeader>
+        <Card className="mb-3 text-light bg-dark">
           <Row className="mt-2 mb-0">
             <Col>
               <CardImg
-                variant="top"
                 src={img}
                 alt={title}
                 style={{
@@ -67,6 +36,21 @@ const ClimbCard = ({ climb }) => {
           </Row>
           <Row>
             <CardBody>
+              <h5>
+            <Row className="p-0 pb-1">
+              <Col>{!isPublic && <BsLockFill />}</Col>
+              <Col className="p-0" xs={{ span: 7 }}>
+                {title}
+              </Col>
+              <Col>
+                {isBoulder ? (
+                  <BsBootstrapFill color="green" size={20} />
+                ) : (
+                  <BsRSquareFill color="red" size={20} />
+                )}
+              </Col>
+            </Row>
+              </h5>
               <Col>{difficulty}</Col>
               <Col>
                 {new Date(date).toLocaleDateString("en-us", {
@@ -75,7 +59,6 @@ const ClimbCard = ({ climb }) => {
                   day: "numeric",
                 })}
               </Col>
-              <Col>{}</Col>
             </CardBody>
           </Row>
         </Card>

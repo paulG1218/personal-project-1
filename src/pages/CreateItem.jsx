@@ -17,7 +17,6 @@ const CreateItem = () => {
 
     switch (res.data.message) {
       case "Item created":
-        console.log(res.data);
         navigate(`/shop/${res.data.item.itemId}`);
         break;
       case "Title taken":

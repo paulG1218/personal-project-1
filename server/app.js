@@ -18,7 +18,6 @@ app.use(
 
 app.get("/api/climbs", async (req, res) => {
   const allClimbs = await Climb.findAll();
-  console.log(allClimbs);
   res.json(allClimbs);
 });
 
@@ -66,12 +65,6 @@ app.post("/api/createItem", authFunctions.createItem);
 app.put("/api/editItem/:itemId", authFunctions.editItem);
 
 app.delete("/api/deleteItem/:itemId", authFunctions.deleteItem);
-
-app.get("/api/userLikes", authFunctions.getUserLikes);
-
-app.post("/api/addLike", authFunctions.addLike);
-
-app.get("/api/climbLikes/:climbId", authFunctions.getClimbLikes);
 
 ViteExpress.listen(app, port, () =>
   console.log(`Server is listening on http://localhost:${port}`)

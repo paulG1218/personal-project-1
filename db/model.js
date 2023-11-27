@@ -124,31 +124,6 @@ User.init(
   }
 );
 
-export class Like extends Model {
-  [util.inspect.custom]() {
-    return this.toJSON();
-  }
-}
-
-Like.init(
-  {
-    likeId: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-  },
-  {
-    modelName: "like",
-    sequelize: db,
-  }
-);
-
 User.hasMany(Climb, { foreignKey: "userId" });
 Climb.belongsTo(User, { foreignKey: "userId" });
 
-User.hasMany(Like, { foreignKey: "userId" });
-Like.belongsTo(User, { foreignKey: "userId" });
-
-Climb.hasMany(Like, { foreignKey: "climbId" });
-Like.belongsTo(Climb, { foreignKey: "climbId" });
