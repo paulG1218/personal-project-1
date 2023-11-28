@@ -22,7 +22,7 @@ const Homepage = () => {
     <ShopCard key={item.itemId} item={item} />
   ));
   return (
-    <Container fluid className="m-0">
+    <Container fluid className="m-0" color="white">
       <h1>Home</h1>
       <Row>
         <Col xs={{ span: 2 }}>

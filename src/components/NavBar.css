@@ -1,0 +1,10 @@
+div.text-light.m-0.navbar {
+    max-width: 1295px;
+    margin: 0;
+}
+
+div.m-0.row {
+    max-width: 1300px;
+    min-width: 99vw;
+    margin: 0px;
+}

@@ -13,6 +13,7 @@ import {
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { GiMountainClimbing } from "react-icons/gi";
+import'./NavBar.css'
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -39,15 +40,15 @@ const NavBar = () => {
 
   return (
     <Navbar bg="success" data-bs-theme="dark" className="text-light m-0">
-      <Container fluid>
-        <Row style={{minWidth: '100vw'}}>
+      <Container fluid className="p-0 m-0">
+        <Row className="m-0">
           <Col xs={{ span: 1 }}>
             <Navbar.Brand href="/">
               <GiMountainClimbing className='mt-2' size={40} />
             </Navbar.Brand>
           </Col>
           <Navbar.Toggle />
-          <Col xs={{ span: 11 }}>
+          <Col xs={{ span: 11 }} className="p-0">
             <Navbar.Collapse >
               <Col xs={{ span: 1 }} className="fs-4">
                 <NavDropdown title="Climbs">
@@ -95,8 +96,8 @@ const NavBar = () => {
                   <NavLink href="/shop" className="text-light">Shop</NavLink>
                 </Nav>
               </Col>
-              <Col xs={{offset: 9 }} className="fs-4">
-                <Nav>
+              <Col xs={{offset: 9 }} className="fs-4 p-0">
+                <Nav className="w-75">
                   {userId && (
                     <NavLink className="text-light" href={`/profile/${userId}`}>{username}</NavLink>
                   )}

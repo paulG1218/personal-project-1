@@ -69,7 +69,7 @@ const Profile = () => {
   };
 
   return (
-    <Container fluid>
+    <Container fluid className="text-light">
       {user.userId === storeUserId && (
         <EditProfileForm
           logout={logout}

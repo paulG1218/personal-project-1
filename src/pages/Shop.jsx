@@ -88,7 +88,7 @@ const Shop = () => {
           </Dropdown>
         </Col>
       </Row>
-      <Row xs={1} md={2} lg={4}>
+      <Row xs={1} md={2} lg={6}>
         {items}
       </Row>
       {isAdmin && <Button href="/createItem">Add an item</Button>}

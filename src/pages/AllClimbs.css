@@ -1,0 +1,8 @@
+.text-light.bg-secondary.form-control::placeholder {
+    color: white;
+}
+
+.text-light.bg-secondary.form-control {
+    margin-left: 6vw;
+    max-width: 88vw;
+}

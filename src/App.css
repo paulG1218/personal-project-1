@@ -1,8 +1,10 @@
 #root {
   margin: 0;
   text-align: center;
+  color: white;
 }
 
 body {
   place-items: center;
+  color: white;
 }

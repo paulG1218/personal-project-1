@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import ClimbCard from "../components/ClimbCard";
 import { Button, Card, Col, Dropdown, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import './AllClimbs.css'
 
 const AllClimbs = () => {
   const dispatch = useDispatch();
@@ -53,7 +54,7 @@ const AllClimbs = () => {
 
   return (
     <>
-      <Row className="mb-3">
+      <Row className="mb-3 mt-3">
         <Col >
           <Form.Control
             className="text-light bg-secondary"

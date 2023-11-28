@@ -1,11 +1,12 @@
 :root {
-  color-scheme: light dark;
-  color: light-dark(#000, #ffffff);
-  background-color: light-dark(#ffffff, #000);
+  color-scheme: dark;
+  color: #ffffff;
+  background-color: #000;
 }
 
 body {
   place-items: center;
+  color: white;
   background-color: rgb(33, 37, 41);
 
 }

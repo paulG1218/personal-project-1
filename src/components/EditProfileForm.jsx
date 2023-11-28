@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Alert, Button, Col, Form, Row } from "react-bootstrap";
+import "./EditProfileForm.css"
 
 const EditProfileForm = ({
   logout,
@@ -24,9 +25,9 @@ const EditProfileForm = ({
 
   return (
     <>
-      <Row>
+      <Row className="mt-3">
         <Col>
-          <Button variant="outline-danger" onClick={logout}>
+          <Button variant="danger" onClick={logout}>
             Log out
           </Button>
         </Col>
