@@ -7,14 +7,25 @@
 body {
   place-items: center;
   color: white;
-  background-color: rgb(33, 37, 41);
+  background-color: rgb(33, 37, 41, 80%);
+  background-image: url('https://t4.ftcdn.net/jpg/02/79/86/35/360_F_279863561_0PN9IlNPd1zP5cYWcrJh3kLtukXSdbCT.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: multiply;
+}
 
+div.background{
+  opacity: 0.5;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
     color: white;
-    background-color: rgb(33, 37, 41);
+    background-color: rgb(33, 37, 41, 80%);
+    background-image: url('https://t4.ftcdn.net/jpg/02/79/86/35/360_F_279863561_0PN9IlNPd1zP5cYWcrJh3kLtukXSdbCT.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
   }
 }
