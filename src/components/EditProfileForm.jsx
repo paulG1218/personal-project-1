@@ -66,7 +66,7 @@ const EditProfileForm = ({
           </Col>
           <Col>
             <Form.Control
-              className="text-light bg-dark m-0"
+              className="text-light m-0"
               readOnly={!isEditing}
               plaintext={!isEditing}
               value={usernameState}
@@ -82,7 +82,7 @@ const EditProfileForm = ({
           </Col>
           <Col>
             <Form.Control
-              className="text-light bg-dark m-0"
+              className="text-light m-0"
               readOnly={!isEditing}
               type="password"
               plaintext={!isEditing}

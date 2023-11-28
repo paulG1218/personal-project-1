@@ -54,7 +54,7 @@ const Shop = () => {
         <Col className="search">
           <Form.Control
             placeholder="Search"
-            className="text-light bg-secondary"
+            className="text-light bg-dark"
             value={searchBar}
             onChange={(e) => setSearchBar(e.target.value.toLowerCase())}
           />
@@ -63,7 +63,7 @@ const Shop = () => {
       <Row>
         <Col xs={{ span: 2 }}>
           <Dropdown>
-            <Dropdown.Toggle className='mb-3 text-light bg-secondary' variant="outline-light">
+            <Dropdown.Toggle className='mb-3 text-light bg-dark' variant="outline-light">
               Filter
             </Dropdown.Toggle>
 

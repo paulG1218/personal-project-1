@@ -20,7 +20,7 @@ const ClimbCard = ({ climb }) => {
       <NavLink href={`/climbs/${climbId}`}>
         <Card className="mb-3 text-light bg-dark" border="white">
           <Row className="mt-2 mb-0">
-            <Col>
+            <Col className="mt-3">
               <CardImg
                 src={img}
                 alt={title}

@@ -57,7 +57,7 @@ const AllClimbs = () => {
       <Row className="mb-3 mt-3">
         <Col className="search">
           <Form.Control
-            className="text-light bg-secondary"
+            className="text-light bg-dark"
             placeholder='Search'
             value={searchBar}
             onChange={(e) => setSearchBar(e.target.value.toLowerCase())}
@@ -67,7 +67,7 @@ const AllClimbs = () => {
       <Row>
         <Col xs={{ span: 2 }}>
           <Dropdown>
-            <Dropdown.Toggle className='mb-3 text-light bg-secondary' variant="outline-light">
+            <Dropdown.Toggle className='mb-3 text-light bg-dark' variant="outline-light">
               Filter
             </Dropdown.Toggle>
 

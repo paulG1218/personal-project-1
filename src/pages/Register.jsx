@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { Card, CardBody, Container, Row } from "react-bootstrap";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -33,11 +34,18 @@ const Register = () => {
     }
   };
   return (
-    <div>
-      <RegisterForm onRegister={handleRegister} />
-      <p style={{ color: "red" }} id="error"></p>
-      <Link to="/login">Already have an account?</Link>
-    </div>
+    <Card className="loginCard bg-dark text-light">
+      <Container>
+        <CardBody>
+          <Row>
+            <h5>Register</h5>
+          </Row>
+          <RegisterForm onRegister={handleRegister} />
+          <p style={{ color: "red" }} id="error"></p>
+          <Link to="/login">Already have an account?</Link>
+        </CardBody>
+      </Container>
+    </Card>
   );
 };
 

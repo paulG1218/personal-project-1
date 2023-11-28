@@ -16,7 +16,7 @@ const ShopCard = ({ item }) => {
     <Col className="mb-3">
       <NavLink href={`/shop/${itemId}`}>
         <Card className="mb-3 text-light bg-dark" border="white">
-          <Row className="mt-2 mb-0">
+          <Row className="mt-4 mb-0">
             <Col>
               <CardImg
                 variant="top"
@@ -34,12 +34,16 @@ const ShopCard = ({ item }) => {
           </Row>
           <Row>
             <CardBody>
-              <h5>
+              <h4 >
                 {title}
+              </h4>
+              <h5 className="mt-3 mb-0">
+                ${price}
               </h5>
-              ${price}
               <br />
-              {description}
+              <Col style={{marginLeft: '1vw', marginRight: '1vw'}} className="mb-3">
+                {description}
+              </Col>
             </CardBody>
             </Row>
         </Card>
