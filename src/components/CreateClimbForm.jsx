@@ -9,6 +9,7 @@ import {
   Col,
 } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import './CreateClimbForm.css'
 
 const CreateClimbForm = ({ handleCreateClimb }) => {
   const userId = useSelector((state) => state.login.userId);
@@ -40,14 +41,12 @@ const CreateClimbForm = ({ handleCreateClimb }) => {
   ];
 
   return (
-    <Container fluid xs={{ span: 4, offset: 3 }} className="fs-5">
-      <Row>
-        <Col>
-          <Form.Label htmlFor="title">Title:</Form.Label>
-        </Col>
+    <Container fluid xs={{ span: 4, offset: 3 }} className="fs-5 mt-3">
+      <Row className="mb-3 createClimb">
         <Col>
           <Form.Control
-            className="text-light bg-dark m-0"
+            placeholder="Title"
+            className="text-light bg-secondary m-0"
             name="title"
             id="title"
             type="text"
@@ -56,10 +55,7 @@ const CreateClimbForm = ({ handleCreateClimb }) => {
           />
         </Col>
       </Row>
-      <Row>
-        <Col>
-          <Form.Label htmlFor="isBoulder">Boulder or Route?</Form.Label>
-        </Col>
+      <Row className="mb-3 createClimb">
         <Col>
           <ButtonGroup className="climbRadio" size="lg">
             {boulderRadios.map((radio, idx) => (
@@ -82,14 +78,11 @@ const CreateClimbForm = ({ handleCreateClimb }) => {
           </ButtonGroup>
         </Col>
       </Row>
-      <Row>
-        <Col>
-          <Form.Label htmlFor="difficulty">Difficulty:</Form.Label>
-        </Col>
+      <Row className="mb-3 createClimb">
         <Col>
           {boulderRadioValue === "2" && (
             <Form.Select
-              className="text-light bg-dark m-0"
+              className="text-light bg-secondary m-0"
               name="difficulty"
               id="routeDifficulty"
               type="text"
@@ -130,7 +123,7 @@ const CreateClimbForm = ({ handleCreateClimb }) => {
 
           {boulderRadioValue === "1" && (
             <Form.Select
-              className="text-light bg-dark m-0"
+              className="text-light bg-secondary m-0"
               name="difficulty"
               id="boulderDifficulty"
               type="text"
@@ -157,13 +150,11 @@ const CreateClimbForm = ({ handleCreateClimb }) => {
           )}
         </Col>
       </Row>
-      <Row>
-        <Col>
-          <Form.Label htmlFor="description">Description:</Form.Label>
-        </Col>
+      <Row className="mb-3 createClimb">
         <Col>
           <Form.Control
-            className="text-light bg-dark m-0"
+            placeholder="Description"
+            className="text-light bg-secondary m-0"
             name="description"
             id="description"
             type="text"
@@ -172,13 +163,11 @@ const CreateClimbForm = ({ handleCreateClimb }) => {
           />
         </Col>
       </Row>
-      <Row>
-        <Col>
-          <Form.Label htmlFor="image">Image:</Form.Label>
-        </Col>
+      <Row className="mb-3 createClimb">
         <Col>
           <Form.Control
-            className="text-light bg-dark m-0"
+            placeholder="Image"
+            className="text-light bg-secondary m-0"
             name="image"
             id="image"
             type="text"
@@ -187,10 +176,7 @@ const CreateClimbForm = ({ handleCreateClimb }) => {
           />
         </Col>
       </Row>
-      <Row>
-        <Col>
-          <Form.Label htmlFor="isPublic">Public or Private?</Form.Label>
-        </Col>
+      <Row className="mb-3 createClimb">
         <Col>
           <ButtonGroup className="publicRadio" size="lg">
             {publicRadios.map((radio, idx) => (

@@ -49,7 +49,7 @@ const NavBar = () => {
           </Col>
           <Navbar.Toggle />
           <Col className="p-0">
-            <Navbar.Collapse >
+            <Navbar.Collapse>
               <Col className="fs-4 climbs">
                 <NavDropdown title="Climbs">
                   <NavDropdown.Item

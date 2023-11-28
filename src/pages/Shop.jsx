@@ -67,7 +67,7 @@ const Shop = () => {
               Filter
             </Dropdown.Toggle>
 
-            <Dropdown.Menu>
+            <Dropdown.Menu variant="dark">
               <Dropdown.Item onClick={() => setFilterState("All")}>
                 All
               </Dropdown.Item>
