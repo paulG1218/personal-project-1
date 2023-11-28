@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { Alert, Button, Col, Container, Row } from "react-bootstrap";
+import { Alert, Badge, Button, Col, Container, Row } from "react-bootstrap";
 import EditClimbForm from "../components/EditClimbForm";
 import axios from "axios";
 
@@ -55,6 +55,11 @@ const ClimbPage = () => {
   if (isEditing === false) {
     return (
       <Container className="fs-5 mt-3">
+        <Row className="mb-3">
+          <Col>
+            <h1>{title}</h1>
+          </Col>
+        </Row>
         {(userId === climb.userId || isAdmin) && (
           <Row className="mb-3">
             <Col xs={{ span: 1, offset: 11 }}>
@@ -70,27 +75,29 @@ const ClimbPage = () => {
           </Row>
         )}
         <Row className="mb-3">
-          <Col>Title:</Col>
-          <Col>{title}</Col>
+          <Col xs={{offset: 4, span: 1}}>
+            <h2>
+              {difficulty}
+            </h2>
+          </Col>
+          <Col xs={{offset: 2, span: 1}}>
+            <h2>
+                {isBoulder && <Badge bg="success">Boulder</Badge>}
+                {!isBoulder && <Badge bg='danger'>Route</Badge>}
+              </h2>
+            </Col>
         </Row>
         <Row className="mb-3">
-          <Col>Type:</Col>
-          {isBoulder && <Col>Boulder</Col>}
-          {!isBoulder && <Col>Route</Col>}
-        </Row>
-        <Row className="mb-3">
-          <Col>Difficulty:</Col>
-          <Col>{difficulty}</Col>
-        </Row>
-        <Row className="mb-3">
-          <Col>Description:</Col>
-          <Col>{description}</Col>
+          <Col xs={{offset: 2}}>
+            <img style={{width: '30rem'}} src={img} alt={`image of ${title}`}/>
+          </Col>
+          <Col>
+            <h4>
+              {description}
+            </h4>
+          </Col>
         </Row>
         <Row>
-          <Col>Image:</Col>
-          <Col>
-            <img style={{width: '30rem'}} src={img} alt={`image of ${title}`} />
-          </Col>
         </Row>
       </Container>
     );

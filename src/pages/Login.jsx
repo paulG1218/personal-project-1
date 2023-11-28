@@ -31,7 +31,7 @@ const Login = () => {
         errTxt.innerText = "Password incorrect";
         break;
       default:
-        errTxt.innerText = "No user found";
+        errTxt.innerText = "Username not found";
     }
   };
 
