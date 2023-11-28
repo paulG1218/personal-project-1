@@ -29,22 +29,18 @@ span.logoText {
     
 }
 
-a.dropdown-toggle.nav-link {
-    max-width: 15vw;
-    margin-left: 10vw;
-}
-
 div.climbs.fs-4.col {
-    max-width: 15vw;
+    max-width: 30vw;
+    margin-left: 4vw;
 }
 
 div.shop.fs-4.col {
     max-width: 15vw;
-    margin-left: 3vw;
+    margin-left: 1vw;
 }
 
 div.user.fs-4.col {
-    margin-left: 59vw;
+    margin-left: 51vw;
     align-content: right;
 }
 
