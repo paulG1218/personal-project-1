@@ -10,7 +10,7 @@ const Homepage = () => {
 
   const publicClimbs = climbs.filter((climb) => climb.isPublic);
 
-  const randomClimbs = lodash.sampleSize(publicClimbs, 4);
+  const randomClimbs = lodash.sampleSize(publicClimbs, 2);
 
   const randomClimbCards = randomClimbs.map((climb) => (
     <ClimbCard key={climb.climbId} climb={climb} />
@@ -22,7 +22,7 @@ const Homepage = () => {
     <ShopCard key={item.itemId} item={item} />
   ));
   return (
-    <Container fluid className="m-0" color="white">
+    <Container fluid className="mt-2 m-0" color="white">
       <h1>Home</h1>
       <Row>
         <Col xs={{ span: 2 }}>

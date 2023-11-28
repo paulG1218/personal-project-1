@@ -55,7 +55,7 @@ const AllClimbs = () => {
   return (
     <>
       <Row className="mb-3 mt-3">
-        <Col >
+        <Col className="search">
           <Form.Control
             className="text-light bg-secondary"
             placeholder='Search'

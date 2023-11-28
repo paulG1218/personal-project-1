@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import ShopCard from "../components/ShopCard";
 import { Button, Col, Dropdown, Form, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import './Shop.css'
 
 const Shop = () => {
   const { shop } = useLoaderData();
@@ -49,19 +50,20 @@ const Shop = () => {
   });
   return (
     <>
-      <Row className="mb-3">
-        <Col xs={{ span: 10, offset: 1 }}>
+      <Row className="mb-3 mt-3">
+        <Col className="search">
           <Form.Control
             placeholder="Search"
+            className="text-light bg-secondary"
             value={searchBar}
             onChange={(e) => setSearchBar(e.target.value.toLowerCase())}
           />
         </Col>
       </Row>
       <Row>
-        <Col xs={{ span: 2 }} className="mb-3">
+        <Col xs={{ span: 2 }}>
           <Dropdown>
-            <Dropdown.Toggle variant="outline-secondary">
+            <Dropdown.Toggle className='mb-3 text-light bg-secondary' variant="outline-light">
               Filter
             </Dropdown.Toggle>
 

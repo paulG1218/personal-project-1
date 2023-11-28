@@ -42,15 +42,15 @@ const NavBar = () => {
     <Navbar bg="success" data-bs-theme="dark" className="text-light m-0">
       <Container fluid className="p-0 m-0">
         <Row className="m-0">
-          <Col xs={{ span: 1 }}>
+          <Col className="logo">
             <Navbar.Brand href="/">
               <GiMountainClimbing className='mt-2' size={40} />
             </Navbar.Brand>
           </Col>
           <Navbar.Toggle />
-          <Col xs={{ span: 11 }} className="p-0">
+          <Col className="p-0">
             <Navbar.Collapse >
-              <Col xs={{ span: 1 }} className="fs-4">
+              <Col className="fs-4 climbs">
                 <NavDropdown title="Climbs">
                   <NavDropdown.Item
                     onClick={() => {
@@ -91,13 +91,13 @@ const NavBar = () => {
                   )}
                 </NavDropdown>
               </Col>
-              <Col xs={{span: 1}} className="fs-4">
+              <Col className="fs-4 shop">
                 <Nav>
                   <NavLink href="/shop" className="text-light">Shop</NavLink>
                 </Nav>
               </Col>
-              <Col xs={{offset: 9 }} className="fs-4 p-0">
-                <Nav className="w-75">
+              <Col className="fs-4 user">
+                <Nav>
                   {userId && (
                     <NavLink className="text-light" href={`/profile/${userId}`}>{username}</NavLink>
                   )}

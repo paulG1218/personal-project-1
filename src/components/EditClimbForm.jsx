@@ -44,10 +44,11 @@ const EditClimbForm = ({ climb, handleEditClimb, handleDelete }) => {
   ];
 
   return (
-    <Container fluid>
+    <Container fluid className="fs-5 mt-3">
       <Row className="mb-3">
         <Col xs={{ span: 1, offset: 11 }}>
           <Button
+            size="lg"
             variant="primary"
             type="input"
             onClick={(e) =>
@@ -71,6 +72,7 @@ const EditClimbForm = ({ climb, handleEditClimb, handleDelete }) => {
         </Col>
         <Col>
           <Form.Control
+            className="text-light bg-secondary m-0"
             name="title"
             id="title"
             type="text"
@@ -85,7 +87,7 @@ const EditClimbForm = ({ climb, handleEditClimb, handleDelete }) => {
           <Form.Label htmlFor="isBoulder">Boulder or Route?</Form.Label>
         </Col>
         <Col>
-          <ButtonGroup className="climbRadio">
+          <ButtonGroup className="climbRadio" size="lg">
             {boulderRadios.map((radio, idx) => (
               <ToggleButton
                 key={idx}
@@ -114,6 +116,7 @@ const EditClimbForm = ({ climb, handleEditClimb, handleDelete }) => {
         <Col>
           {boulderRadioValue === "2" && (
             <Form.Select
+              className="text-light bg-secondary"
               name="difficulty"
               id="routeDifficulty"
               type="text"
@@ -155,6 +158,7 @@ const EditClimbForm = ({ climb, handleEditClimb, handleDelete }) => {
 
           {boulderRadioValue === "1" && (
             <Form.Select
+              className="text-light bg-secondary"
               name="difficulty"
               id="boulderDifficulty"
               type="text"
@@ -188,6 +192,7 @@ const EditClimbForm = ({ climb, handleEditClimb, handleDelete }) => {
         </Col>
         <Col>
           <Form.Control
+            className="text-light bg-secondary m-0"
             name="description"
             id="description"
             as="textarea"
@@ -203,6 +208,7 @@ const EditClimbForm = ({ climb, handleEditClimb, handleDelete }) => {
         </Col>
         <Col>
           <Form.Control
+          className="text-light bg-secondary m-0"
             name="image"
             id="image"
             type="text"
@@ -217,7 +223,7 @@ const EditClimbForm = ({ climb, handleEditClimb, handleDelete }) => {
           <Form.Label htmlFor="isPublic">Public or Private?</Form.Label>
         </Col>
         <Col>
-          <ButtonGroup className="publicRadio">
+          <ButtonGroup className="publicRadio" size="lg">
             {publicRadios.map((radio, idx) => (
               <ToggleButton
                 key={idx}
@@ -239,8 +245,8 @@ const EditClimbForm = ({ climb, handleEditClimb, handleDelete }) => {
         </Col>
       </Row>
       <Row className="mb-3">
-        <Col xs={{ span: 2, offset: 10 }}>
-          <Button variant="danger" onClick={handleDelete}>
+        <Col xs={{ span: 2, offset: 5 }}>
+          <Button variant="danger" onClick={handleDelete} size="lg" className="mt-5">
             Delete climb
           </Button>
         </Col>

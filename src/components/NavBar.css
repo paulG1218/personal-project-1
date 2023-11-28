@@ -8,3 +8,24 @@ div.m-0.row {
     min-width: 99vw;
     margin: 0px;
 }
+
+div.logo.col {
+    max-width: 7vw;
+}
+
+a.dropdown-toggle.nav-link {
+    max-width: 15vw;
+}
+
+div.climbs.fs-4.col {
+    max-width: 15vw;
+}
+
+div.shop.fs-4.col {
+    max-width: 15vw;
+}
+
+div.user.fs-4.col {
+    margin-left: 59vw;
+    align-content: right;
+}

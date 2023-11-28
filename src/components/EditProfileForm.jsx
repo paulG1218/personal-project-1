@@ -25,15 +25,16 @@ const EditProfileForm = ({
 
   return (
     <>
-      <Row className="mt-3">
+      <Row className="mt-3 mb-3">
         <Col>
-          <Button variant="danger" onClick={logout}>
+          <Button size='lg' variant="danger" onClick={logout}>
             Log out
           </Button>
         </Col>
         {isEditing ? (
           <Col xs={{ span: 1, offset: 9 }}>
             <Button
+              size="lg"
               onClick={() => {
                 setIsEditing(false);
                 handleSubmit({
@@ -49,7 +50,8 @@ const EditProfileForm = ({
           <Col xs={{ span: 1, offset: 9 }}>
             <Button
               type="button"
-              variant="light"
+              size="lg"
+              variant="secondary"
               onClick={() => setIsEditing(true)}
             >
               Edit
@@ -57,13 +59,14 @@ const EditProfileForm = ({
           </Col>
         )}
       </Row>
-      <Form>
-        <Row>
+      <Form className="fs-5">
+        <Row className="mb-3">
           <Col>
             <Form.Label>Username:</Form.Label>
           </Col>
           <Col>
             <Form.Control
+              className="text-light bg-dark m-0"
               readOnly={!isEditing}
               plaintext={!isEditing}
               value={usernameState}
@@ -73,12 +76,13 @@ const EditProfileForm = ({
             ></Form.Control>
           </Col>
         </Row>
-        <Row>
+        <Row className="mb-3">
           <Col>
             <Form.Label>Password:</Form.Label>
           </Col>
           <Col>
             <Form.Control
+              className="text-light bg-dark m-0"
               readOnly={!isEditing}
               type="password"
               plaintext={!isEditing}
@@ -91,7 +95,7 @@ const EditProfileForm = ({
       <Row>
         {isEditing && (
           <Col>
-            <Button variant="danger" onClick={handleDelete}>
+            <Button variant="outline-danger" onClick={handleDelete} size="lg">
               Delete account
             </Button>
           </Col>
@@ -99,9 +103,10 @@ const EditProfileForm = ({
       </Row>
       {user.isAdmin && (
         <Form onSubmit={(e) => handleNewAdmin(e, { newAdmin: newAdmin })}>
-          <Row>
+          <Row className="mb-3">
             <Col xs={{ span: 4, offset: 3 }}>
               <Form.Control
+                className="text-light bg-secondary"
                 placeholder="New admin username"
                 value={newAdmin}
                 onChange={(e) => setNewAdmin(e.target.value)}

@@ -54,12 +54,13 @@ const ClimbPage = () => {
 
   if (isEditing === false) {
     return (
-      <Container>
+      <Container className="fs-5 mt-3">
         {(userId === climb.userId || isAdmin) && (
-          <Row>
+          <Row className="mb-3">
             <Col xs={{ span: 1, offset: 11 }}>
               <Button
-                variant="light"
+                size="lg"
+                variant="secondary"
                 type="input"
                 onClick={() => setIsEditing(true)}
               >
@@ -68,20 +69,20 @@ const ClimbPage = () => {
             </Col>
           </Row>
         )}
-        <Row>
+        <Row className="mb-3">
           <Col>Title:</Col>
           <Col>{title}</Col>
         </Row>
-        <Row>
+        <Row className="mb-3">
           <Col>Type:</Col>
           {isBoulder && <Col>Boulder</Col>}
           {!isBoulder && <Col>Route</Col>}
         </Row>
-        <Row>
+        <Row className="mb-3">
           <Col>Difficulty:</Col>
           <Col>{difficulty}</Col>
         </Row>
-        <Row>
+        <Row className="mb-3">
           <Col>Description:</Col>
           <Col>{description}</Col>
         </Row>
