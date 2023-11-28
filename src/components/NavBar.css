@@ -10,11 +10,28 @@ div.m-0.row {
 }
 
 div.logo.col {
-    max-width: 7vw;
+    max-width: 10vw;
+    margin-left: 1vw;
+}
+
+svg.mt-2 {
+    position: absolute;
+    left: 27px;
+    top: 5px;
+}
+
+span.logoText {
+    font-size: 50px;
+    position: absolute;
+    margin: 0px;
+    top: -6px;
+    left: 58px;
+    
 }
 
 a.dropdown-toggle.nav-link {
     max-width: 15vw;
+    margin-left: 10vw;
 }
 
 div.climbs.fs-4.col {
@@ -23,6 +40,7 @@ div.climbs.fs-4.col {
 
 div.shop.fs-4.col {
     max-width: 15vw;
+    margin-left: 3vw;
 }
 
 div.user.fs-4.col {

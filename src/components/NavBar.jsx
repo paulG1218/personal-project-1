@@ -45,6 +45,7 @@ const NavBar = () => {
           <Col className="logo">
             <Navbar.Brand href="/">
               <GiMountainClimbing className='mt-2' size={40} />
+              <span className="logoText">Rock on</span>
             </Navbar.Brand>
           </Col>
           <Navbar.Toggle />
