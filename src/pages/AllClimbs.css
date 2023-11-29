@@ -1,12 +1,19 @@
-.text-light.bg-dark.form-control::placeholder {
+.searchBar.text-light.form-control::placeholder {
     color: white;
+    opacity: 0.5;
 }
 
-.text-light.bg-dark.form-control {
+.searchBar.text-light.form-control {
     margin-left: 6vw;
     max-width: 88vw;
+    background-color: rgb(33, 37, 41, 60%);
 }
 
 div {
     max-width: 100vw;
+}
+
+div.cardsRow {
+    max-width: 90vw;
+    margin-left: 5vw;
 }

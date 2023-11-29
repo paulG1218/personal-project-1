@@ -56,7 +56,7 @@ const NavBar = () => {
                 <NavDropdown title="Climbs">
                   <NavDropdown.Item
                     onClick={() => {
-                      dispatch({ type: "filter", payload: "All" });
+                      dispatch({ type: "filter", payload: "All Climbs" });
                       navigate("/climbs");
                     }}
                   >
@@ -64,7 +64,7 @@ const NavBar = () => {
                   </NavDropdown.Item>
                   <NavDropdown.Item
                     onClick={() => {
-                      dispatch({ type: "filter", payload: "Boulder" });
+                      dispatch({ type: "filter", payload: "Boulders" });
                       navigate("/climbs");
                     }}
                   >
@@ -72,7 +72,7 @@ const NavBar = () => {
                   </NavDropdown.Item>
                   <NavDropdown.Item
                     onClick={() => {
-                      dispatch({ type: "filter", payload: "Route" });
+                      dispatch({ type: "filter", payload: "Routes" });
                       navigate("/climbs");
                     }}
                   >
@@ -83,11 +83,11 @@ const NavBar = () => {
                       <NavDropdown.Divider />
                       <NavDropdown.Item
                         onClick={() => {
-                          dispatch({ type: "filter", payload: "Private" });
+                          dispatch({ type: "filter", payload: "Your Climbs" });
                           navigate("/climbs");
                         }}
                       >
-                        My climbs
+                        Your climbs
                       </NavDropdown.Item>
                     </>
                   )}

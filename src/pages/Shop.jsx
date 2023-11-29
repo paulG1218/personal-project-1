@@ -50,11 +50,14 @@ const Shop = () => {
   });
   return (
     <>
+      <Row>
+        <h1 style={{fontSize: '60px'}}>Shop</h1>
+      </Row>
       <Row className="mb-3 mt-3">
         <Col className="search">
           <Form.Control
             placeholder="Search"
-            className="text-light bg-dark"
+            className="text-light searchBar"
             value={searchBar}
             onChange={(e) => setSearchBar(e.target.value.toLowerCase())}
           />
@@ -90,7 +93,7 @@ const Shop = () => {
           </Dropdown>
         </Col>
       </Row>
-      <Row xs={1} md={2} lg={6}>
+      <Row xs={1} md={2} lg={6} className="cardsRow">
         {items}
       </Row>
       {isAdmin && <Button href="/createItem">Add an item</Button>}

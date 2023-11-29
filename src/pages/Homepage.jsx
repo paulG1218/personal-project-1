@@ -23,7 +23,7 @@ const Homepage = () => {
   ));
   return (
     <Container fluid className="mt-2 m-0" color="white">
-      <h1>Home</h1>
+      <h1 style={{fontSize: '60px'}}>Home</h1>
       <Row>
         <Col xs={{ span: 2 }}>
           <h3>Climbs</h3>

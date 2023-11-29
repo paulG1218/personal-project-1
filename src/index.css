@@ -7,7 +7,7 @@
 body {
   place-items: center;
   color: white;
-  background-color: rgb(33, 37, 41, 80%);
+  background-color: rgb(33, 37, 41, 60%);
   background-image: url('https://t4.ftcdn.net/jpg/02/79/86/35/360_F_279863561_0PN9IlNPd1zP5cYWcrJh3kLtukXSdbCT.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -22,7 +22,7 @@ div.background{
   :root {
     color-scheme: dark;
     color: white;
-    background-color: rgb(33, 37, 41, 80%);
+    background-color: rgb(33, 37, 41, 60%);
     background-image: url('https://t4.ftcdn.net/jpg/02/79/86/35/360_F_279863561_0PN9IlNPd1zP5cYWcrJh3kLtukXSdbCT.jpg');
     background-repeat: no-repeat;
     background-size: cover;

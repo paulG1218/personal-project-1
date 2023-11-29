@@ -27,20 +27,20 @@ const AllClimbs = () => {
     if (climb.isPublic || climb.userId === userId) {
       if (searchBar === "" || climb.title.toLowerCase().includes(searchBar)) {
         switch (filterState) {
-          case "All":
+          case "All Climbs":
             return <ClimbCard key={climb.climbId} climb={climb} />;
-          case "Private":
+          case "Your Climbs":
             if (climb.userId === userId) {
               console.log(climb.userId);
               return <ClimbCard key={climb.climbId} climb={climb} />;
             }
             break;
-          case "Boulder":
+          case "Boulders":
             if (climb.isBoulder) {
               return <ClimbCard key={climb.climbId} climb={climb} />;
             }
             break;
-          case "Route":
+          case "Routes":
             if (!climb.isBoulder) {
               return <ClimbCard key={climb.climbId} climb={climb} />;
             }
@@ -54,10 +54,13 @@ const AllClimbs = () => {
 
   return (
     <>
+    <Row>
+      <h1 style={{fontSize: '60px'}}>{filterState}</h1>
+    </Row>
       <Row className="mb-3 mt-3">
         <Col className="search">
           <Form.Control
-            className="text-light bg-dark"
+            className="text-light searchBar"
             placeholder='Search'
             value={searchBar}
             onChange={(e) => setSearchBar(e.target.value.toLowerCase())}
@@ -72,25 +75,25 @@ const AllClimbs = () => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu variant="dark">
-              <Dropdown.Item onClick={() => handleFilter("All")}>
+              <Dropdown.Item onClick={() => handleFilter("All Climbs")}>
                 All Climbs
               </Dropdown.Item>
-              <Dropdown.Item onClick={() => handleFilter("Boulder")}>
+              <Dropdown.Item onClick={() => handleFilter("Boulders")}>
                 Boulders
               </Dropdown.Item>
-              <Dropdown.Item onClick={() => handleFilter("Route")}>
+              <Dropdown.Item onClick={() => handleFilter("Routes")}>
                 Routes
               </Dropdown.Item>
               {userId && (
-                <Dropdown.Item onClick={() => handleFilter("Private")}>
-                  My Climbs
+                <Dropdown.Item onClick={() => handleFilter("Your Climbs")}>
+                  Your Climbs
                 </Dropdown.Item>
               )}
             </Dropdown.Menu>
           </Dropdown>
         </Col>
       </Row>
-      <Row xs={1} md={2} lg={6}>
+      <Row xs={1} md={2} lg={6} className="cardsRow">
         {climbCards}
       </Row>
       {userId && <Button href="/createClimb">Create a climb</Button>}
