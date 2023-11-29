@@ -53,10 +53,11 @@ const ItemPage = () => {
     return (
       <Container fluid>
         {isAdmin && (
-          <Row>
+          <Row className="mt-3">
             <Col xs={{ span: 1, offset: 11 }}>
               <Button
-                variant="light"
+                variant="dark"
+                size="lg"
                 type="input"
                 onClick={() => setIsEditing(true)}
               >

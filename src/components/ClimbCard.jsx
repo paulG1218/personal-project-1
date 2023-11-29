@@ -9,6 +9,7 @@ import {
   NavLink,
   Row,
   Image,
+  Badge
 } from "react-bootstrap";
 import { BsBootstrapFill, BsRSquareFill, BsLockFill } from "react-icons/bs";
 
@@ -51,7 +52,11 @@ const ClimbCard = ({ climb }) => {
               </Col>
             </Row>
               </h5>
-              <Col>{difficulty}</Col>
+              <Col>
+                <h5>
+                  <Badge bg="secondary" pill>{difficulty}</Badge>
+                </h5>
+              </Col>
               <Col>
                 {new Date(date).toLocaleDateString("en-us", {
                   year: "numeric",

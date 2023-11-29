@@ -16,7 +16,7 @@ const Homepage = () => {
     <ClimbCard key={climb.climbId} climb={climb} />
   ));
 
-  const randomItems = lodash.sampleSize(shop, 3);
+  const randomItems = lodash.sampleSize(shop, 2);
 
   const randomItemCards = randomItems.map((item) => (
     <ShopCard key={item.itemId} item={item} />
@@ -25,11 +25,11 @@ const Homepage = () => {
     <Container fluid className="mt-2 m-0" color="white">
       <h1 style={{fontSize: '60px'}}>Home</h1>
       <Row>
-        <Col xs={{ span: 2 }}>
+        <Col xs={{ span: 2, offset: 1}}>
           <h3>Climbs</h3>
           {randomClimbCards}
         </Col>
-        <Col xs={{ span: 2, offset: 8 }}>
+        <Col xs={{ span: 2, offset: 6 }}>
           <h3>Shop now</h3>
           {randomItemCards}
         </Col>

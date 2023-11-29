@@ -2,7 +2,7 @@ const initialState = {
   userId: null,
   isAdmin: false,
   username: null,
-  filterState: "All",
+  filterState: "All Climbs",
 };
 
 const loginReducer = (state = initialState, action) => {

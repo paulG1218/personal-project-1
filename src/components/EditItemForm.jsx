@@ -15,7 +15,9 @@ const EditItemForm = ({ item, handleEditItem, handleDelete }) => {
       <Row className="mb-3">
         <Col xs={{ span: 1, offset: 11 }}>
           <Button
+          className="mt-3"
             variant="primary"
+            size="lg"
             type="input"
             onClick={(e) =>
               handleEditItem(e, {
@@ -88,12 +90,12 @@ const EditItemForm = ({ item, handleEditItem, handleDelete }) => {
           />
         </Col>
       </Row>
-      <Row>
+      <Row className="mb-3">
         <Col>
           <Form.Label htmlFor="img">Image URL:</Form.Label>
         </Col>
-        <Col>
-          <ButtonGroup style={{ width: "40rem" }}>
+        <Col xs={{span: 6}}>
+          <ButtonGroup style={{ width: "50rem" }}>
             <Form.Control
               name="img"
               type="text"

@@ -38,10 +38,12 @@ const Profile = () => {
   };
 
   const handleDelete = async () => {
-    const res = await axios.delete(`/api/profile/${user.userId}`);
-    console.log(res.data);
-    logout();
-  };
+    if (confirm('Are you sure you want to delete your account?')) {
+      const res = await axios.delete(`/api/profile/${user.userId}`);
+      console.log(res.data);
+      logout();
+    };
+  }
 
   const handleNewAdmin = async (e, newAdmin) => {
     e.preventDefault();
@@ -69,7 +71,7 @@ const Profile = () => {
   };
 
   return (
-    <Container fluid className="text-light">
+    <Container fluid className="text-light profileCont">
       {user.userId === storeUserId && (
         <EditProfileForm
           logout={logout}

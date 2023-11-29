@@ -83,7 +83,7 @@ const ClimbPage = () => {
             <Row className="headRow">
               <Col>
               <h2>
-                {difficulty}
+                <Badge bg="secondary" pill>{difficulty}</Badge>
               </h2>
             </Col>
             <Col >
