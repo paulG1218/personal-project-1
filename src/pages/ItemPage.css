@@ -1,0 +1,31 @@
+a.buyButton {
+    width: 20rem;
+    height: 3rem;
+    margin-bottom: 4rem;
+}
+
+h4.desc {
+    width: 20rem;
+    align-self: center;
+}
+
+img.image {
+    width: 30rem;
+    border-radius: 7px;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+}
+
+div.priceRow {
+    width: 20rem;
+    margin-top: 3rem;
+    align-self: last baseline;
+}
+
+div.infoCol {
+    flex-wrap: wrap;
+    padding-left: 2rem;
+    max-width: 22rem;
+    border-radius: 7px;
+}
