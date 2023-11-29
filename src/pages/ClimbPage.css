@@ -1,0 +1,14 @@
+div.climbInfoCol {
+    max-width: 30rem;
+    padding: 20px;
+    border-radius: 7px;
+}
+
+div.headRow {
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+div.imgCol {
+    margin-left: 4rem;
+}

@@ -1,6 +1,7 @@
 div.text-light.m-0.navbar {
     max-width: 1295px;
     margin: 0;
+    padding-bottom: 0px;
 }
 
 div.m-0.row {
@@ -12,6 +13,7 @@ div.m-0.row {
 div.logo.col {
     max-width: 10vw;
     margin-left: 1vw;
+    margin-bottom: 28px;
 }
 
 svg.mt-2 {
@@ -46,4 +48,26 @@ div.user.fs-4.col {
 
 nav.text-light.m-0.navbar {
     background-image: linear-gradient(79deg, #227035, #4c855a);
+    padding-bottom: 0px;
+}
+
+a.dropdown-toggle.nav-link {
+    width: 120px;
+    margin-left: 1rem;
+    padding-top: 11px;
+    padding-bottom: 13px;
+}
+
+a.text-light.shopLink.nav-link {
+    padding-top: 11px;
+    padding-bottom: 13px;
+}
+a.text-light.userLink.nav-link {
+    padding-top: 11px;
+    padding-bottom: 13px;
+}
+
+.navbar a:hover {
+    border-radius: 7px;
+    background-color: black;
 }

@@ -48,10 +48,11 @@ const NavBar = () => {
               <span className="logoText">Rock on</span>
             </Navbar.Brand>
           </Col>
-          <Navbar.Toggle />
+          <Navbar.Toggle/>
           <Col className="p-0">
             <Navbar.Collapse>
               <Col className="fs-4 climbs">
+                <h3>
                 <NavDropdown title="Climbs">
                   <NavDropdown.Item
                     onClick={() => {
@@ -91,18 +92,23 @@ const NavBar = () => {
                     </>
                   )}
                 </NavDropdown>
+                </h3>
               </Col>
               <Col className="fs-4 shop">
                 <Nav>
-                  <NavLink href="/shop" className="text-light">Shop</NavLink>
+                  <h3>
+                    <NavLink href="/shop" className="text-light shopLink">Shop</NavLink>
+                  </h3>
                 </Nav>
               </Col>
               <Col className="fs-4 user">
                 <Nav>
-                  {userId && (
-                    <NavLink className="text-light" href={`/profile/${userId}`}>{username}</NavLink>
-                  )}
-                  {!userId && <NavLink className="text-light" href="/login">Log in</NavLink>}
+                  <h3 className="navLinks">
+                    {userId && (
+                      <NavLink className="text-light userLink" href={`/profile/${userId}`}>{username}</NavLink>
+                    )}
+                    {!userId && <NavLink className="text-light userLink" href="/login">Log in</NavLink>}
+                  </h3>
                 </Nav>
               </Col>
             </Navbar.Collapse>

@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { Alert, Badge, Button, Col, Container, Row } from "react-bootstrap";
 import EditClimbForm from "../components/EditClimbForm";
 import axios from "axios";
+import "./ClimbPage.css"
 
 const ClimbPage = () => {
   const { climb } = useLoaderData();
@@ -75,26 +76,28 @@ const ClimbPage = () => {
           </Row>
         )}
         <Row className="mb-3">
-          <Col xs={{offset: 4, span: 1}}>
-            <h2>
-              {difficulty}
-            </h2>
+          <Col xs={{span: 6, offset: 1}} className="imgCol">
+            <img style={{width: '30rem'}} src={img} alt={`image of ${title}`} className="image"/>
           </Col>
-          <Col xs={{offset: 2, span: 1}}>
-            <h2>
-                {isBoulder && <Badge bg="success">Boulder</Badge>}
-                {!isBoulder && <Badge bg='danger'>Route</Badge>}
+          <Col className="climbInfoCol bg-dark">
+            <Row className="headRow">
+              <Col>
+              <h2>
+                {difficulty}
               </h2>
             </Col>
-        </Row>
-        <Row className="mb-3">
-          <Col xs={{offset: 2}}>
-            <img style={{width: '30rem'}} src={img} alt={`image of ${title}`}/>
-          </Col>
-          <Col>
-            <h4>
-              {description}
-            </h4>
+            <Col >
+              <h2>
+                  {isBoulder && <Badge bg="success">Boulder</Badge>}
+                  {!isBoulder && <Badge bg='danger'>Route</Badge>}
+                </h2>
+              </Col>
+            </Row>
+            <Row>
+              <h4>
+                {description}
+              </h4>
+            </Row>
           </Col>
         </Row>
         <Row>
