@@ -96,7 +96,7 @@ const Shop = () => {
       <Row xs={1} md={2} lg={6} className="cardsRow">
         {items}
       </Row>
-      {isAdmin && <Button href="/createItem">Add an item</Button>}
+      {isAdmin && <Button size="lg" href="/createItem">Add an item</Button>}
     </>
   );
 };

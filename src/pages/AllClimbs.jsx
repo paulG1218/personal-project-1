@@ -96,7 +96,7 @@ const AllClimbs = () => {
       <Row xs={1} md={2} lg={6} className="cardsRow">
         {climbCards}
       </Row>
-      {userId && <Button href="/createClimb">Create a climb</Button>}
+      {userId && <Button size="lg" href="/createClimb">Create a climb</Button>}
     </>
   );
 };
