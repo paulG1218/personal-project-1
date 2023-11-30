@@ -14,9 +14,9 @@ import './CreateClimbForm.css'
 const CreateClimbForm = ({ handleCreateClimb }) => {
   const userId = useSelector((state) => state.login.userId);
 
-  const [title, setTitle] = useState();
+  const [title, setTitle] = useState("");
 
-  const [difficulty, setDifficulty] = useState();
+  const [difficulty, setDifficulty] = useState("");
 
   const [boulderRadioValue, setBoulderRadioValue] = useState("1");
 
@@ -42,11 +42,16 @@ const CreateClimbForm = ({ handleCreateClimb }) => {
 
   return (
     <Container fluid xs={{ span: 4, offset: 3 }} className="fs-5 mt-3">
-      <Row className="mb-3 createClimb">
+      {title === "" ? (
+        <h1>New Climb</h1>
+      ):(
+        <h1>{title}</h1>
+      )}
+      <Row className="mb-3 mt-3 createClimb">
         <Col>
           <Form.Control
             placeholder="Title"
-            className="text-light bg-secondary m-0"
+            className="text-light bg-dark m-0"
             name="title"
             id="title"
             type="text"
@@ -57,6 +62,32 @@ const CreateClimbForm = ({ handleCreateClimb }) => {
       </Row>
       <Row className="mb-3 createClimb">
         <Col>
+          <Form.Control
+            placeholder="Description"
+            className="text-light bg-dark m-0"
+            name="description"
+            id="description"
+            type="text"
+            required
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </Col>
+      </Row>
+      <Row className="mb-3 createClimb">
+        <Col>
+          <Form.Control
+            placeholder="Image"
+            className="text-light bg-dark m-0"
+            name="image"
+            id="image"
+            type="text"
+            required
+            onChange={(e) => setImage(e.target.value)}
+          />
+        </Col>
+      </Row>
+      <Row className="mb-3 createClimb">
+      <Col>
           <ButtonGroup className="climbRadio" size="lg">
             {boulderRadios.map((radio, idx) => (
               <ToggleButton
@@ -77,12 +108,10 @@ const CreateClimbForm = ({ handleCreateClimb }) => {
             ))}
           </ButtonGroup>
         </Col>
-      </Row>
-      <Row className="mb-3 createClimb">
         <Col>
           {boulderRadioValue === "2" && (
             <Form.Select
-              className="text-light bg-secondary m-0"
+              className="text-light bg-dark m-0"
               name="difficulty"
               id="routeDifficulty"
               type="text"
@@ -123,7 +152,7 @@ const CreateClimbForm = ({ handleCreateClimb }) => {
 
           {boulderRadioValue === "1" && (
             <Form.Select
-              className="text-light bg-secondary m-0"
+              className="text-light bg-dark m-0"
               name="difficulty"
               id="boulderDifficulty"
               type="text"
@@ -149,34 +178,6 @@ const CreateClimbForm = ({ handleCreateClimb }) => {
             </Form.Select>
           )}
         </Col>
-      </Row>
-      <Row className="mb-3 createClimb">
-        <Col>
-          <Form.Control
-            placeholder="Description"
-            className="text-light bg-secondary m-0"
-            name="description"
-            id="description"
-            type="text"
-            required
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </Col>
-      </Row>
-      <Row className="mb-3 createClimb">
-        <Col>
-          <Form.Control
-            placeholder="Image"
-            className="text-light bg-secondary m-0"
-            name="image"
-            id="image"
-            type="text"
-            required
-            onChange={(e) => setImage(e.target.value)}
-          />
-        </Col>
-      </Row>
-      <Row className="mb-3 createClimb">
         <Col>
           <ButtonGroup className="publicRadio" size="lg">
             {publicRadios.map((radio, idx) => (

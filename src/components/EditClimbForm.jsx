@@ -9,6 +9,7 @@ import {
   ToggleButton,
 } from "react-bootstrap";
 import { useState } from "react";
+import './EditClimbForm.css'
 
 const EditClimbForm = ({ climb, handleEditClimb, handleDelete }) => {
   const { title, difficulty, isBoulder, isPublic, description, img } = climb;
@@ -66,13 +67,13 @@ const EditClimbForm = ({ climb, handleEditClimb, handleDelete }) => {
           </Button>
         </Col>
       </Row>
-      <Row className="mb-3">
-        <Col>
-          <Form.Label htmlFor="title">Title:</Form.Label>
-        </Col>
+      <Row>
+        <h1>Edit Climb</h1>
+      </Row>
+      <Row className="mb-3 mt-3 editClimb">
         <Col>
           <Form.Control
-            className="text-light bg-secondary m-0"
+            className="text-light bg-dark m-0"
             name="title"
             id="title"
             type="text"
@@ -82,11 +83,34 @@ const EditClimbForm = ({ climb, handleEditClimb, handleDelete }) => {
           />
         </Col>
       </Row>
-      <Row className="mb-3">
+      <Row className="mb-3 editClimb">
         <Col>
-          <Form.Label htmlFor="isBoulder">Boulder or Route?</Form.Label>
+          <Form.Control
+            className="text-light bg-dark m-0"
+            name="description"
+            id="description"
+            as="textarea"
+            value={descriptionState}
+            required
+            onChange={(e) => setDescription(e.target.value)}
+          />
         </Col>
+      </Row>
+      <Row className="mb-3 editClimb">
         <Col>
+          <Form.Control
+          className="text-light bg-dark m-0"
+            name="image"
+            id="image"
+            type="text"
+            value={imageState}
+            required
+            onChange={(e) => setImage(e.target.value)}
+          />
+        </Col>
+      </Row>
+      <Row className="mb-3 editClimb">
+      <Col>
           <ButtonGroup className="climbRadio" size="lg">
             {boulderRadios.map((radio, idx) => (
               <ToggleButton
@@ -108,15 +132,10 @@ const EditClimbForm = ({ climb, handleEditClimb, handleDelete }) => {
             ))}
           </ButtonGroup>
         </Col>
-      </Row>
-      <Row className="mb-3">
-        <Col>
-          <Form.Label htmlFor="difficulty">Difficulty:</Form.Label>
-        </Col>
         <Col>
           {boulderRadioValue === "2" && (
             <Form.Select
-              className="text-light bg-secondary"
+              className="text-light bg-dark"
               name="difficulty"
               id="routeDifficulty"
               type="text"
@@ -158,7 +177,7 @@ const EditClimbForm = ({ climb, handleEditClimb, handleDelete }) => {
 
           {boulderRadioValue === "1" && (
             <Form.Select
-              className="text-light bg-secondary"
+              className="text-light bg-dark"
               name="difficulty"
               id="boulderDifficulty"
               type="text"
@@ -184,43 +203,6 @@ const EditClimbForm = ({ climb, handleEditClimb, handleDelete }) => {
               <option value="V15+">V15+</option>
             </Form.Select>
           )}
-        </Col>
-      </Row>
-      <Row className="mb-3">
-        <Col>
-          <Form.Label htmlFor="description">Description:</Form.Label>
-        </Col>
-        <Col>
-          <Form.Control
-            className="text-light bg-secondary m-0"
-            name="description"
-            id="description"
-            as="textarea"
-            value={descriptionState}
-            required
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </Col>
-      </Row>
-      <Row className="mb-3">
-        <Col>
-          <Form.Label htmlFor="image">Image:</Form.Label>
-        </Col>
-        <Col>
-          <Form.Control
-          className="text-light bg-secondary m-0"
-            name="image"
-            id="image"
-            type="text"
-            value={imageState}
-            required
-            onChange={(e) => setImage(e.target.value)}
-          />
-        </Col>
-      </Row>
-      <Row className="mb-3">
-        <Col>
-          <Form.Label htmlFor="isPublic">Public or Private?</Form.Label>
         </Col>
         <Col>
           <ButtonGroup className="publicRadio" size="lg">

@@ -17,7 +17,7 @@ const ClimbCard = ({ climb }) => {
   const { title, difficulty, date, img, isBoulder, isPublic, climbId } = climb;
 
   return (
-    <Col className="mb-0">
+    <Col className="mb-0 " style={{width: '15.5rem'}}>
       <NavLink href={`/climbs/${climbId}`}>
         <Card className="mb-3 text-light bg-dark" border="white">
           <Row className="mt-2 mb-0">
@@ -38,12 +38,12 @@ const ClimbCard = ({ climb }) => {
           <Row>
             <CardBody>
               <h5>
-            <Row className="p-0 pb-1">
-              <Col>{!isPublic && <BsLockFill />}</Col>
-              <Col className="p-0" xs={{ span: 7 }}>
+            <Row className="p-0 pb-1" fluid>
+              <Col className="p-0" xs={{span: 1, offset: 1}}>{!isPublic && <BsLockFill />}</Col>
+              <Col className="mx-2 p-0" xs={{ span: 7 }}>
                 {title}
               </Col>
-              <Col>
+              <Col xs={{span: 1}} className="p-0">
                 {isBoulder ? (
                   <BsBootstrapFill color="green" size={20} />
                 ) : (

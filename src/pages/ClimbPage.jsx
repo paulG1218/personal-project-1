@@ -106,14 +106,14 @@ const ClimbPage = () => {
     );
   } else {
     return (
-      <Container>
+      <>
         <EditClimbForm
           climb={climb}
           handleEditClimb={handleEditClimb}
           handleDelete={handleDelete}
         />
         {alertText !== "" && <Alert variant="danger">{alertText}</Alert>}
-      </Container>
+      </>
     );
   }
 };
