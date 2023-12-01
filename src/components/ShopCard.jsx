@@ -13,7 +13,7 @@ const ShopCard = ({ item }) => {
   const { title, description, price, purchaseLink, img, itemId } = item;
 
   return (
-    <Col className="mb-3">
+    <Col className="mb-3"  style={{width: '15.5rem'}}>
       <NavLink href={`/shop/${itemId}`}>
         <Card className="mb-3 text-light bg-dark" border="white">
           <Row className="mt-4 mb-0">

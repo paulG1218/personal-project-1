@@ -2,18 +2,20 @@ div.text-light.m-0.navbar {
     max-width: 1295px;
     margin: 0;
     padding-bottom: 0px;
+    padding: 0px;
 }
 
 div.m-0.row {
     max-width: 1300px;
     min-width: 99vw;
     margin: 0px;
+    max-height: 70px;
 }
 
 div.logo.col {
-    max-width: 10vw;
+    min-width: 8vw;
+    max-width: 8vw;
     margin-left: 1vw;
-    margin-bottom: 28px;
 }
 
 svg.mt-2 {
@@ -23,11 +25,11 @@ svg.mt-2 {
 }
 
 span.logoText {
-    font-size: 50px;
+    font-size: 50.5px;
     position: absolute;
     margin: 0px;
     top: -6px;
-    left: 57px;
+    left: 61px;
     font-weight: 600;
     
 }
@@ -43,8 +45,8 @@ div.shop.fs-4.col {
 }
 
 div.user.fs-4.col {
-    margin-left: 51vw;
-    align-content: right;
+    margin-left: 60vw;
+    align-content: center;
 }
 
 nav.text-light.m-0.navbar {
@@ -66,9 +68,14 @@ a.text-light.shopLink.nav-link {
 a.text-light.userLink.nav-link {
     padding-top: 11px;
     padding-bottom: 13px;
+    width: 8vw;
 }
 
 .navbar a:hover {
     border-radius: 7px;
     background-color: black;
+}
+
+div.navabar-collapse.collapse {
+    max-height: 9px;
 }

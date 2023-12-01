@@ -49,7 +49,7 @@ const NavBar = () => {
             </Navbar.Brand>
           </Col>
           <Navbar.Toggle/>
-          <Col className="p-0">
+          <Col className="p-0" xs={{span:8}}>
             <Navbar.Collapse>
               <Col className="fs-4 climbs">
                 <h3>
